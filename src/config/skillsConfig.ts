@@ -11,7 +11,7 @@ import type { SkillsConfig } from "@/types/skillsConfig";
  * 注：技能的具体内容数据（技能名称、熟练度等级、图标、描述等）请在 `src/data/skills.ts` 中维护。
  */
 export const skillsConfig: SkillsConfig = {
-	enable: true,
+	enable: false,
 	categories: [
 		{
 			key: "frontend",

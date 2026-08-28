@@ -1,0 +1,10 @@
+{
+  "title": "ComfyUI",
+  "description": "使用 ComfyUI 生成与尝试的产出展示。",
+  "date": "2026-08-29",
+  "location": "ComfyUI",
+  "tags": ["ComfyUI", "AI", "Miku", "洛天依"],
+  "layout": "masonry",
+  "columns": 3,
+  "hidden": false
+}
