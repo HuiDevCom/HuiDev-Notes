@@ -69,7 +69,7 @@ export const siteConfig: SiteConfig = {
 			enable: true,
 			title: "风绘笔记",
 			subtitle: [
-				"用代码构建，用文字记录",
+				"HuiDev Notes",
 			],
 			typewriter: {
 				// 副标题逐字显示；关闭后直接显示完整副标题。
