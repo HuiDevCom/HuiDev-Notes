@@ -12,7 +12,7 @@ export const siteConfig: SiteConfig = {
 	site: "https://huidev.com/",
 	base: "/",
 	title: "风绘笔记",
-	subtitle: "用代码构建，用文字记录",
+	subtitle: "HuiDev Notes",
 	// 电脑端顶栏标题与导航内容区域："left" 左对齐，"center" 居中。
 	topAppBar: {
 		contentAlign: "center",
@@ -67,9 +67,9 @@ export const siteConfig: SiteConfig = {
 		homeText: {
 			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。
 			enable: true,
-			title: "风绘笔记",
+			title: "HuiDev Notes",
 			subtitle: [
-				"HuiDev Notes",
+				"用代码构建，用文字记录",
 			],
 			typewriter: {
 				// 副标题逐字显示；关闭后直接显示完整副标题。
