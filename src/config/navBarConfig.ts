@@ -1,5 +1,6 @@
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
+import { animeConfig } from "@/config/animeConfig";
 import { devicesConfig } from "@/config/devicesConfig";
 import { projectsConfig } from "@/config/projectsConfig";
 import { skillsConfig } from "@/config/skillsConfig";
@@ -100,7 +101,7 @@ export const LinkPresets: Record<string, NavBarLink> = {
 	},
 	GitHub: {
 		name: "GitHub",
-		url: "https://github.com/LyraVoid/Shirone",
+		url: "https://github.com/HuiDevCom/HuiDev-Notes",
 		icon: "fa6-brands:github",
 		external: true,
 		pageKey: "github",
@@ -113,7 +114,7 @@ export const navBarConfig: NavBarConfig = {
 		LinkPresets.Archive,
 		LinkPresets.Friends,
 		LinkPresets.Moments,
-		LinkPresets.Anime,
+		...(animeConfig.enable ? [LinkPresets.Anime] : []),
 		LinkPresets.Compass,
 		LinkPresets.Albums,
 		{

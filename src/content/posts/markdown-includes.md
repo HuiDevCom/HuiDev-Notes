@@ -1,10 +1,10 @@
 ---
 title: "Markdown File Includes"
-published: 2026-08-28
+published: 2026-06-15
 description: "Build-time Markdown file and slice includes."
 tags: [Markdown, Shirone]
 category: Guides
-draft: false
+draft: true
 ---
 
 Shirone can include a local Markdown file or a safe slice of one.

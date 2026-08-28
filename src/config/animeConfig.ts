@@ -39,7 +39,7 @@ import type {
  */
 export const animeConfig: AnimeConfig = {
 	/** 是否启用番剧页（仅控制页面渲染，不发起任何外部网络连接） */
-	enable: true,
+	enable: false,
 
 	/** 主数据源选择 */
 	source: {

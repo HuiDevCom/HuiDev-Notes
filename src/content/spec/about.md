@@ -1,26 +1,25 @@
-# About Shirone
+# About
 
-Welcome to the demo site of **Shirone** (白音) — an expressive, anime-inspired blog theme built on the **Material 3 Expressive (M3E)** design system.
+::github{repo="HuiDevCom/HuiDev-Notes"}
 
-::github{repo="LyraVoid/Shirone"}
+## 风绘
 
-## ✦ Design & Philosophy
+你好，我是风绘。
 
-Shirone aims to combine the warmth of expressive anime aesthetics with the rigor of modern web engineering:
+计算机应用专业在读，会一点平面设计，正在学前端的路上慢慢爬，这个站就是我尝试这些东西时为所学知识留下的痕迹。
 
-- **Dynamic Chromatic Spell**: Full dynamic HCT palette generation responding seamlessly to light/dark modes and user preferences with zero layout shifts.
-- **Seamless Shell Navigation**: Persistent application shell driven by Swup for continuous music playback, smooth page transitions, and preserved state.
-- **Rich Story Grimoire**: Markdown and MDX authoring with KaTeX math, Mermaid diagrams, interactive admonitions, expressive code blocks, and adaptive image galleries.
-- **Zero Extra Burden**: Optional integrations (comments, analytics, music widgets) load dynamically on demand — zero DOM footprint and zero bundle overhead when disabled.
+## 关于这个站
 
-## ✦ Tech Stack
+huidev.com —— hui 来自「风绘」，dev 就是 developer。「绘」是记录、是把脑子里模糊的东西落到纸上，dev 是动手、是构建、是把想法变成能用的东西。这两个字放在一起，大致就是我想做的事情。
 
-- **Framework**: [Astro 7](https://astro.build/) & [Svelte 5](https://svelte.dev/) (Runes-driven islands)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [Stylus](https://stylus-lang.com/)
-- **Design Standard**: [Material 3 Expressive](https://m3.material.io/)
-- **Typography**: Outfit & Yozai (悠哉圆体) with automated build-time subsetting
-- **Search Engine**: [Pagefind](https://pagefind.app/) offline full-text search
+这里的笔记什么都有。有时候是学到一个新知识点随手记下来，有时候是生活里的一些想法觉得值得写两句，偶尔也会有完整一些的教程。我不太想把笔记站限定在某个主题框里，学什么就写什么，想写什么就写什么。
 
-## ✦ Credits
+## 关于笔记
 
-- **Font**: [Yozai Font (悠哉字体)](https://github.com/lxgw/yozai-font) by [lxgw](https://github.com/lxgw)
+这些文章首先是写给我自己看的 —— 为了理解、记忆，以及未来的自己回来翻。但既然公开出来了，如果能顺便帮到路过的你，那就更好了。
+
+内容可能比较杂，内容质量尽可能稳定细致一些，有的笔记反复改了好几遍，有的可能就是刚刚学完趁热记的。我会尽量让它们清晰、有用，但请带着批判的眼光去看 —— 如果发现哪里有问题，欢迎指正。
+
+---
+
+*最后更新于 2026年8月21日*
