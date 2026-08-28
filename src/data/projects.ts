@@ -6,40 +6,20 @@ import type { ProjectItem } from "@/types/projectsConfig";
 
 export const projectsData: ProjectItem[] = [
 	{
-		key: "shirone",
-		title: "Shirone",
+		key: "huidev-api",
+		title: "风绘 API",
 		summary:
-			"An Astro blog theme shaped around an M3E component system, expressive content, and resilient client navigation.",
-		category: "theme",
-		phase: "building",
-		technologies: ["Astro", "Svelte", "TypeScript", "Tailwind CSS"],
-		icon: "material-symbols:deployed-code-outline-rounded",
-		cover: "/assets/projects/shirone.webp",
-		coverAlt: "Shirone theme homepage preview",
-		featured: true,
-		repository: "https://github.com/LyraVoid/Shirone",
-		year: "2026",
-	},
-	{
-		key: "folkpatch",
-		title: "FolkPatch",
-		summary: "A kernel-level root solution for Android, built on APatch.",
-		category: "android",
-		phase: "building",
-		technologies: ["Kotlin", "APatch", "Android"],
-		icon: "material-symbols:terminal-rounded",
-		repository: "https://github.com/LyraVoid/FolkPatch",
-	},
-	{
-		key: "kernelpatch",
-		title: "KernelPatch",
-		summary:
-			"A kernel patch framework that powers APatch-style root on Android by loading code into the running kernel.",
-		category: "android",
+			"聚合主流大模型到同一个 OpenAI 兼容端点：一次接入、按量计费，切换模型只需改一行 model 参数——剩下的，交给风绘酱。",
+		category: "backend",
 		phase: "shipped",
-		technologies: ["C", "Linux Kernel", "Android"],
-		icon: "material-symbols:extension-outline-rounded",
-		repository: "https://github.com/lyravoid/KernelPatch",
+		technologies: ["API"],
+		icon: "material-symbols:api-rounded",
+		cover: "/assets/projects/huidev-api.png",
+		coverAlt: "风绘 API 控制台预览",
+		featured: true,
+		repository: "https://github.com/HuiDevCom/HuiDev-API",
+		website: "https://api.huidev.com/",
+		year: "2026",
 	},
 ];
 
