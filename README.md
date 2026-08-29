@@ -6,28 +6,17 @@
 
 一个基于 Material 3、富有表现力的二次元博客主题。
 
-由 [matsuzaka-yuki](https://github.com/matsuzaka-yuki) 用心制作
-
-[在线预览](https://huidev.com/) · [项目文档](./docs/) · [反馈问题](https://github.com/HuiDevCom/HuiDev-Notes/issues)
-
-[English](./README.zh-CN.md) | [简体中文](./README.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md)
-
-![Node.js >= 22.12](https://img.shields.io/badge/Node.js-%3E%3D22.12-5FA04E?logo=nodedotjs&logoColor=white)
-![pnpm 9](https://img.shields.io/badge/pnpm-9-F69220?logo=pnpm&logoColor=white)
-![Astro 7](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
-[![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](./LICENSE)
-
 </div>
 
 ![风绘笔记](./README.png)
 
 ## 致谢
 
-本站基于 [matsuzaka-yuki](https://github.com/matsuzaka-yuki) 开发的 [Shirone](https://github.com/LyraVoid/Shirone) 主题构建。感谢 Shirone 项目及其贡献者的用心设计。
+本站基于 [matsuzaka-yuki](https://github.com/matsuzaka-yuki) 开发的 [Shirone](https://github.com/LyraVoid/Shirone) 主题构建并进行二次修改主题。感谢 Shirone 项目及其贡献者的用心设计。
 
 ## 贡献
 
-感谢 风绘笔记 项目的所有贡献者。
+感谢 风绘笔记 仓库的所有贡献者。
 
 <div align="center">
   <a href="https://github.com/HuiDevCom/HuiDev-Notes/graphs/contributors">
