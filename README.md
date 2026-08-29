@@ -25,7 +25,7 @@
 
 <div align="center" width="80%" style="margin: 0 auto;">
   <a href="https://github.com/HuiDevCom/HuiDev-Notes/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=HuiDevCom/HuiDev-Notes" alt="风绘笔记贡献者" width="920" />
+    <img src="https://contrib.rocks/image?repo=HuiDevCom/HuiDev-Notes" alt="风绘笔记贡献者" width="512" />
   </a>
 </div>
 
