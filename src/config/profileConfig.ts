@@ -13,7 +13,7 @@ export const profileConfig: ProfileConfig = withUserConfig("profile", {
 		{
 			name: "GitHub",
 			icon: "fa6-brands:github", // Visit https://icones.js.org/ for icon codes
-			url: "https://github.com/HuiDevCom/HuiDev-Notes",
+			url: "https://github.com/HuiDevCom",
 		},
 	],
 });

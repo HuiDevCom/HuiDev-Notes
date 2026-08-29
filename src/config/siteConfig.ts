@@ -68,10 +68,8 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 		homeText: {
 			// 仅在首页 Banner 中显示，标题与副标题会上下居中排列。
 			enable: true,
-			title: "HuiDev Notes",
-			subtitle: [
-				"用代码构建，用文字记录",
-			],
+			title: "风绘笔记",
+			subtitle: ["用代码构建，用文字记录"],
 			typewriter: {
 				// 副标题逐字显示；关闭后直接显示完整副标题。
 				enable: true,
