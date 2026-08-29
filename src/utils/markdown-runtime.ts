@@ -12,6 +12,34 @@ function hasMatch(root: ParentNode, selector: string): boolean {
 
 const runtimeDescriptors: MarkdownRuntimeDescriptor[] = [
 	{
+		selector: "[data-audio-reader]",
+		initialize: async (root) => {
+			const { initAudioReaders } = await import("./audio-reader");
+			initAudioReaders(root);
+		},
+	},
+	{
+		selector: "[data-acfun]",
+		initialize: async (root) => {
+			const { initAcFunEmbeds } = await import("./acfun");
+			initAcFunEmbeds(root);
+		},
+	},
+	{
+		selector: "[data-bilibili]",
+		initialize: async (root) => {
+			const { initBilibiliEmbeds } = await import("./bilibili");
+			initBilibiliEmbeds(root);
+		},
+	},
+	{
+		selector: "[data-youtube]",
+		initialize: async (root) => {
+			const { initYouTubeEmbeds } = await import("./youtube");
+			initYouTubeEmbeds(root);
+		},
+	},
+	{
 		selector: ".expressive-code",
 		initialize: async (root) => {
 			const { initCodeBlockCollapsing } = await import("./code-collapse");

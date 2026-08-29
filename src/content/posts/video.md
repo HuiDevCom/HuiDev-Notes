@@ -21,8 +21,16 @@ published: 2023-10-19
 
 ## YouTube
 
-<iframe width="100%" height="468" src="https://www.youtube.com/embed/5gIf0_xpFPI?si=N1WTorLKL0uwLsU_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+::youtube{id="5gIf0_xpFPI" title="YouTube video" preload="auto"}
 
 ## Bilibili
 
-<iframe width="100%" height="468" src="//player.bilibili.com/player.html?bvid=BV1fK4y1s7Qf&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+::bilibili{bvid="BV1fK4y1s7Qf" title="Bilibili video" p=1 preload="auto"}
+
+## AcFun
+
+::acfun{acid="ac48649632" title="AcFun video" preload="auto"}
+
+## ArtPlayer
+
+::artplayer{src="https://www.pexels.com/download/video/38538991/" title="Sintel trailer" preload="auto"}

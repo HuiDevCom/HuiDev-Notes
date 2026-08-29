@@ -21,17 +21,27 @@ import {
 } from "../plugins/markdown/containers/rehype-option-groups.mjs";
 import { StepsComponent } from "../plugins/markdown/containers/rehype-steps.mjs";
 import { remarkAbbreviations } from "../plugins/markdown/remark-abbreviations.mjs";
+import { remarkAcFun } from "../plugins/markdown/remark-acfun.mjs";
+import { remarkArtPlayer } from "../plugins/markdown/remark-artplayer.mjs";
+import { remarkAudioReader } from "../plugins/markdown/remark-audio-reader.mjs";
 import { remarkAdmonitions } from "../plugins/markdown/remark-admonitions.mjs";
+import { remarkBilibili } from "../plugins/markdown/remark-bilibili.mjs";
 import { remarkCollapsePanels } from "../plugins/markdown/remark-collapse-panels.mjs";
 import { remarkContentAnnotations } from "../plugins/markdown/remark-content-annotations.mjs";
 import { remarkIncludes } from "../plugins/markdown/remark-includes.mjs";
 import { remarkMarker } from "../plugins/markdown/remark-marker.mjs";
 import { remarkOptionGroups } from "../plugins/markdown/remark-option-groups.mjs";
+import { remarkYouTube } from "../plugins/markdown/remark-youtube.mjs";
 import { AdmonitionComponent } from "../plugins/rehype-component-admonition.mjs";
+import { AcFunComponent } from "../plugins/rehype-component-acfun.mjs";
+import { ArtPlayerComponent } from "../plugins/rehype-component-artplayer.mjs";
+import { AudioReaderComponent } from "../plugins/rehype-component-audio-reader.mjs";
+import { BilibiliComponent } from "../plugins/rehype-component-bilibili.mjs";
 import { GithubCardComponent } from "../plugins/rehype-component-github-card.mjs";
 import { ImageGridComponent } from "../plugins/rehype-component-image-grid.mjs";
 import { MarkerComponent } from "../plugins/rehype-component-marker.mjs";
 import { SpoilerComponent } from "../plugins/rehype-component-spoiler.mjs";
+import { YouTubeComponent } from "../plugins/rehype-component-youtube.mjs";
 import { rehypeMarkdownImages } from "../plugins/rehype-markdown-images.mjs";
 import { rehypeResponsiveTables } from "../plugins/rehype-responsive-tables.mjs";
 import { parseDirectiveNode } from "../plugins/remark-directive-rehype.js";
@@ -60,6 +70,11 @@ export const siteRemarkPlugins = [
 	remarkReadingTime,
 	remarkExcerpt,
 	remarkDirective,
+	remarkAcFun,
+	remarkAudioReader,
+	remarkArtPlayer,
+	remarkBilibili,
+	remarkYouTube,
 	remarkFeatureProbes,
 	remarkSectionize,
 	parseDirectiveNode,
@@ -77,6 +92,11 @@ export const siteRehypePlugins = [
 		rehypeComponents,
 		{
 			components: {
+				acfun: AcFunComponent,
+				"audio-reader": AudioReaderComponent,
+				artplayer: ArtPlayerComponent,
+				bilibili: BilibiliComponent,
+				youtube: YouTubeComponent,
 				collapse: CollapsePanelsComponent,
 				tabs: OptionGroupsComponent,
 				"file-tree": FileTreeComponent,

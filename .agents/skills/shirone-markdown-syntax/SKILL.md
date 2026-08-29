@@ -27,6 +27,22 @@ description: Authoring content with Shirone's custom Markdown syntaxes - admonit
 | 文件包含 | `<!-- @include: 路径 -->`,支持 `{2-6}` 行范围与 `#region` | `markdown-includes.md` |
 | 代码块元数据 | Expressive Code:`title`、`ins={2}`、`del={3-5}`、`collapse={4-8}`、`showLineNumbers`、`frame` 等 | `expressive-code.md` |
 
+## Bilibili 视频
+
+使用 `::bilibili{bvid="BV..." title="..." p=1 preload="auto"}` 嵌入视频。`bvid` 和非空 `title` 必填，`p` 为可选正整数，`preload` 可选值为 `none` 或 `auto`。`auto` 会在视频接近视口时准备播放器，避免首屏一次性加载所有第三方资源；省略时保持点击后加载。首屏输出标题、播放按钮和 Bilibili 回退链接。非法输入保留为普通 Markdown。
+
+## AcFun 视频
+
+使用 `::acfun{acid="ac..." title="..." preload="auto"}` 嵌入视频。`acid` 必须是 `ac` 加正整数，`title` 必填；`preload` 可选值为 `none` 或 `auto`。`auto` 会在视频接近视口时准备播放器，省略时保持点击后加载。首屏输出标题、播放按钮和 AcFun 回退链接。非法输入保留为普通 Markdown。
+
+## ArtPlayer 视频
+
+使用 `::artplayer{src="/..." title="..." preload="auto"}` 输出原生视频控件。`src` 和非空 `title` 必填，来源仅接受站内根路径或显式 HTTPS 地址；`preload` 可选值为 `none` 或 `auto`，默认是 `none`。首版不加载 ArtPlayer npm 包或客户端模块，原生控件和源文件链接在无 JavaScript 时仍可用。
+
+## YouTube 视频
+
+使用 `::youtube{id="..." title="..." preload="auto"}` 嵌入视频。`id` 必须是严格的 11 字符 YouTube 视频 ID，`title` 必填；`preload` 可选值为 `none` 或 `auto`。`auto` 会在视频接近视口时准备 privacy-enhanced 播放器，省略时保持点击后加载。首屏输出标题、播放按钮和 YouTube 回退链接。非法输入保留为普通 Markdown。
+
 ## 使用要点
 
 - 大多数语法对**非法或残缺输入回退为普通 Markdown** 并保留原文,不会静默改写;
@@ -34,6 +50,10 @@ description: Authoring content with Shirone's custom Markdown syntaxes - admonit
 - `:::details` 折叠是纯原生 `<details>`,无 JS;tabs/code-tree 等交互增强在脚本失败时正文仍完整可读;
 - 加密文章的语法增强(如 mermaid)在解密后会正确初始化,无需额外处理;
 - 内联 `w-N%` 是 alt 中的宽度令牌(1–100),越界值保留原文。
+
+## Audio Reader 音频
+
+使用 `:audio-reader[标题]{src="/..."}` 插入紧凑的行内朗读按钮。指令标签和 `src` 均为必填项；来源仅接受站内根路径或显式 HTTPS 地址。标签只作为纯文本显示，隐藏的原生音频元素使用 `preload="none"`，仅在点击扬声器按钮后开始加载。
 
 ## 必读文档
 

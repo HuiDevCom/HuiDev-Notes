@@ -182,6 +182,50 @@ test("renders legacy GitHub cards with an SSR fallback for API enhancement", asy
 	assert.doesNotMatch(result.code, /api\.github\.com|<script/);
 });
 
+test("records AcFun facades after directive parsing", async () => {
+	const result = await renderer.render(
+		'::acfun{acid="ac48649632" title="AcFun video"}',
+	);
+
+	assert.deepEqual(result.metadata.frontmatter.markdownSyntaxes, {
+		schema: 1,
+		syntaxes: ["acfun"],
+	});
+});
+
+test("records ArtPlayer videos after directive parsing", async () => {
+	const result = await renderer.render(
+		'::artplayer{src="/videos/example.mp4" title="Example video"}',
+	);
+
+	assert.deepEqual(result.metadata.frontmatter.markdownSyntaxes, {
+		schema: 1,
+		syntaxes: ["artplayer"],
+	});
+});
+
+test("records Bilibili facades after directive parsing", async () => {
+	const result = await renderer.render(
+		'::bilibili{bvid="BV1fK4y1s7Qf" title="Bilibili video"}',
+	);
+
+	assert.deepEqual(result.metadata.frontmatter.markdownSyntaxes, {
+		schema: 1,
+		syntaxes: ["bilibili"],
+	});
+});
+
+test("records YouTube facades after directive parsing", async () => {
+	const result = await renderer.render(
+		'::youtube{id="5gIf0_xpFPI" title="YouTube video"}',
+	);
+
+	assert.deepEqual(result.metadata.frontmatter.markdownSyntaxes, {
+		schema: 1,
+		syntaxes: ["youtube"],
+	});
+});
+
 test("does not mark ordinary prose with optional capabilities", async () => {
 	const result = await renderer.render("A plain article with no extensions.");
 	assert.deepEqual(result.metadata.frontmatter.markdownSyntaxes, {

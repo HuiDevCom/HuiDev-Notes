@@ -3,12 +3,13 @@ import type {
 	ResolvedTextureOptions,
 	TextureConfig,
 } from "@/types/textureConfig";
+import { withUserConfig } from "../utils/config-overlay.ts";
 
 /**
  * 站点核心配置：标题 / 语言 / 主题色（HCT 动态配色）/ 横幅 / 目录 / 进度条 / favicon。
  * 类型见 src/types/config.ts。
  */
-export const siteConfig: SiteConfig = {
+export const siteConfig: SiteConfig = withUserConfig("site", {
 	site: "https://huidev.com/",
 	base: "/",
 	title: "风绘笔记",
@@ -117,7 +118,7 @@ export const siteConfig: SiteConfig = {
 			src: "/favicon.png",
 		},
 	],
-};
+});
 
 /**
  * 解析并返回背景纹理配置选项（包含关闭短路与 0 开销优化判定）

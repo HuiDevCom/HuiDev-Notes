@@ -1,7 +1,19 @@
 import { visit } from "unist-util-visit";
 import { createMarkdownSyntaxSnapshot } from "../utils/markdown-syntaxes.mjs";
+import { getAcFunEmbedData } from "./markdown/core/acfun.mjs";
+import { getArtPlayerEmbedData } from "./markdown/core/artplayer.mjs";
+import { getAudioReaderEmbedData } from "./markdown/core/audio-reader.mjs";
+import { getBilibiliEmbedData } from "./markdown/core/bilibili.mjs";
+import { getYouTubeEmbedData } from "./markdown/core/youtube.mjs";
 
 const IMAGE_PRESENTATION_WIDTH_TOKEN = /(?:^|\s)w-(?:[1-9]\d?|100)%(?=\s|$)/;
+
+function getDirectiveLabel(children = []) {
+	return children
+		.map((child) => (typeof child.value === "string" ? child.value : ""))
+		.join("")
+		.trim();
+}
 
 /**
  * Collect content capabilities during the shared Markdown compilation pass.
@@ -50,8 +62,46 @@ export function remarkFeatureProbes() {
 			if (node.type === "textDirective" && node.name === "spoiler") {
 				syntaxes.add("spoiler");
 			}
+			if (
+				node.type === "textDirective" &&
+				node.name === "audio-reader" &&
+				getAudioReaderEmbedData(
+					node.attributes,
+					getDirectiveLabel(node.children),
+				)
+			) {
+				syntaxes.add("audio-reader");
+			}
 			if (node.type === "leafDirective" && node.name === "github") {
 				syntaxes.add("github-card");
+			}
+			if (
+				node.type === "leafDirective" &&
+				node.name === "acfun" &&
+				getAcFunEmbedData(node.attributes)
+			) {
+				syntaxes.add("acfun");
+			}
+			if (
+				node.type === "leafDirective" &&
+				node.name === "artplayer" &&
+				getArtPlayerEmbedData(node.attributes)
+			) {
+				syntaxes.add("artplayer");
+			}
+			if (
+				node.type === "leafDirective" &&
+				node.name === "bilibili" &&
+				getBilibiliEmbedData(node.attributes)
+			) {
+				syntaxes.add("bilibili");
+			}
+			if (
+				node.type === "leafDirective" &&
+				node.name === "youtube" &&
+				getYouTubeEmbedData(node.attributes)
+			) {
+				syntaxes.add("youtube");
 			}
 			if (node.type === "contentAnnotationReference") {
 				syntaxes.add("content-annotation");
