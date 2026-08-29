@@ -114,6 +114,13 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		external: true,
 		pageKey: "github",
 	},
+	Umami: {
+		name: "Umami",
+		url: "https://umami.huidev.com/share/uMHtGWTow6pWGeo3",
+		icon: "material-symbols:monitoring-outline-rounded",
+		external: true,
+		pageKey: "umami",
+	},
 };
 
 const defaultNavBarConfig: NavBarConfig = {
@@ -138,6 +145,7 @@ const defaultNavBarConfig: NavBarConfig = {
 				// LinkPresets.Categories,
 				// LinkPresets.Tags,
 				LinkPresets.About,
+				LinkPresets.Umami,
 				LinkPresets.GitHub,
 			],
 		},
