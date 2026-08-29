@@ -23,7 +23,7 @@
 
 感谢 风绘笔记 仓库的所有贡献者。
 
-<div align="center">
+<div align="center" width="80%" style="margin: 0 auto;">
   <a href="https://github.com/HuiDevCom/HuiDev-Notes/graphs/contributors">
     <img src="https://contrib.rocks/image?repo=HuiDevCom/HuiDev-Notes" alt="风绘笔记贡献者" />
   </a>
