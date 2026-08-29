@@ -1,5 +1,7 @@
 <div align="center">
 
+![风绘笔记](./README.png)
+
 # 风绘笔记
 
 <sub>✦ 让文字染上色彩，让每一次翻页都像小小的魔法开始。✦</sub>
@@ -12,8 +14,6 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](./LICENSE)
 
 </div>
-
-![风绘笔记](./README.png)
 
 ## 致谢
 
