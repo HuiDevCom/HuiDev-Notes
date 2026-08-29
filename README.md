@@ -6,6 +6,11 @@
 
 一个基于 Material 3、富有表现力的二次元博客主题。
 
+![Node.js >= 22.12](https://img.shields.io/badge/Node.js-%3E%3D22.12-5FA04E?logo=nodedotjs&logoColor=white)
+![pnpm 9](https://img.shields.io/badge/pnpm-9-F69220?logo=pnpm&logoColor=white)
+![Astro 7](https://img.shields.io/badge/Astro-7-BC52EE?logo=astro&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](./LICENSE)
+
 </div>
 
 ![风绘笔记](./README.png)
