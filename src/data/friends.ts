@@ -43,7 +43,8 @@ export const friendsData: FriendItem[] = [
 	{
 		id: 4,
 		title: "午夜的Blog",
-		imgurl: "https://q.qlogo.cn/headimg_dl?dst_uin=1343394737&spec=640&img_type=jpg",
+		imgurl:
+			"https://q.qlogo.cn/headimg_dl?dst_uin=1343394737&spec=640&img_type=jpg",
 		desc: "用代码表达言语的魅力，用代码书写山河的壮丽。",
 		siteurl: "https://www.wuye2004.top",
 		tags: ["Blog"],
@@ -54,6 +55,15 @@ export const friendsData: FriendItem[] = [
 		imgurl: "https://q2.qlogo.cn/headimg_dl?dst_uin=2726730791&spec=0",
 		desc: "Protect What You Love.",
 		siteurl: "https://2x.nz/",
+		tags: ["Blog"],
+	},
+	{
+		id: 6,
+		title: "Silvaire's Blog",
+		imgurl:
+			"https://wsrv.nl/?url=avatars.githubusercontent.com/u/184231508&s=400&u=0a370792ba6bbb95a04d309171b562bcd7283a0f&v=3",
+		desc: "Per Aspera Ad Astra",
+		siteurl: "https://silvaire.top/",
 		tags: ["Blog"],
 	},
 ];
