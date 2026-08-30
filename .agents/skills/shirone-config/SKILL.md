@@ -24,7 +24,7 @@ description: Configuring a Shirone blog site - site identity, theme colors, navi
 | `postListConfig.ts` | 分页大小、list/grid 布局 |
 | `articleConfig.ts` | 相关文章、分享与海报 |
 | `commentConfig.ts` | 评论系统(默认关闭,Twikoo 等) |
-| `UmamiConfig.ts` | Umami 数据统计：公开分享统计读取，以及可选的官方访问采集脚本 |
+| `umamiConfig.ts` | Umami 数据统计：公开分享统计读取，以及可选的官方访问采集脚本 |
 | `musicConfig.ts` | 侧栏音乐(当前默认启用，可手动关闭；local/custom/meting/mixed 四种模式) |
 | `animeConfig.ts` | 追番页数据源:本地 / Bangumi 快照 / Bilibili 快照 |
 | `fontConfig.ts` | 字体(构建期 TTF→WOFF2 子集化) |
@@ -34,6 +34,12 @@ description: Configuring a Shirone blog site - site identity, theme colors, navi
 | `footerConfig.ts` / `FooterConfig.html` | 可选页脚 HTML 注入(默认关闭) |
 | `licenseConfig.ts` / `expressiveCodeConfig.ts` | 文章版权声明与代码块主题 |
 | `announcementConfig.ts` / `imageBloomConfig.ts` / `textureConfig.ts` | 公告、图片辉光与背景纹理的站点级行为 |
+
+## 内容时间
+
+`siteConfig.timeZone` 使用 IANA 时区名（默认 `Asia/Shanghai`），用于解释文章的 `publishedAt` / `updatedAt` 精确时间并校验其所属日历日期。它独立于 `lang`：语言切换不会改变内容归档日期或同日文章排序。
+
+修改该值前，检查已有文章的精确时间在新时区下是否仍落在其 `published`（以及可选的 `updated`）日期；否则构建会报错。仅有 `published: YYYY-MM-DD` 的既有内容不受影响。文章字段的写法和同日排序规则见 `shirone-writing`。
 
 ## 启用可选功能的通用模式
 
@@ -46,7 +52,7 @@ description: Configuring a Shirone blog site - site identity, theme colors, navi
 
 ## Umami 数据统计
 
-当用户询问访问统计、Umami、页面浏览量或访客追踪时，只修改 `src/config/UmamiConfig.ts`。字段注释是配置契约的单一真源，完整说明见 `docs/umami-guide.md`。
+当用户询问访问统计、Umami、页面浏览量或访客追踪时，只修改 `src/config/umamiConfig.ts`。字段注释是配置契约的单一真源，完整说明见 `docs/umami-guide.md`。
 
 1. **公开统计读取**：设置 `enable: true` 并填写有效的 `shareUrl`（Umami `share/<shareId>` 格式），启用站点与文章统计 UI。
 2. **官方访问采集**：只有在站点所有者明确要求上报访问数据时，才同时填写 `websiteId` 和 `scriptUrl`。任一字段为空，都不得加载官方 Umami 脚本。
