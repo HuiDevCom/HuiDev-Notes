@@ -1,0 +1,22 @@
+---
+/**
+ * 风绘通行证页：Logto SPA 登录与个人资料。
+ * 关闭态（enable: false 或端点/ App ID 未配置）时短路：不渲染岛组件，
+ * 页面主体为空、零外部请求、零 SDK 字节，导航入口同步隐藏。
+ */
+import PassportPanel from "@components/organisms/passport/PassportPanel.svelte";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { passportConfig, resolvePassportOptions } from "@/config";
+
+const options = resolvePassportOptions(passportConfig);
+---
+
+<MainGridLayout
+	title={i18n(I18nKey.passport)}
+	description={i18n(I18nKey.passportBanner)}
+	page="passport"
+>
+	{options && <PassportPanel options={options} client:load />}
+</MainGridLayout>

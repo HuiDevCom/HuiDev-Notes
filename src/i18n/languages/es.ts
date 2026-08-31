@@ -52,6 +52,34 @@ export const es: Translation = {
 	[Key.compassNoResults]: "Ningún sitio coincide con tu búsqueda",
 	[Key.compassCounts]: "sitios",
 
+	[Key.passport]: "Pasaporte",
+	[Key.passportProfile]: "Perfil",
+	[Key.passportProfileBanner]: "Gestiona tu perfil y seguridad del Pasaporte.",
+	[Key.passportFieldName]: "Nombre",
+	[Key.passportFieldNickname]: "Apodo",
+	[Key.passportFieldWebsite]: "Sitio web",
+	[Key.passportFieldUsername]: "Usuario",
+	[Key.passportFieldAvatar]: "URL del avatar",
+	[Key.passportSaveProfile]: "Guardar cambios",
+	[Key.passportProfileSaved]: "Perfil guardado.",
+	[Key.passportNoChanges]: "No hay cambios que guardar",
+	[Key.passportActionFailed]: "Acción fallida",
+	[Key.passportNeedSignIn]: "Inicia sesión para gestionar tu perfil.",
+	[Key.passportProfileUnavailable]:
+		"No se pudo cargar la información de la cuenta",
+	[Key.passportBanner]:
+		"Inicia sesión con el Pasaporte para gestionar tu identidad y perfil.",
+	[Key.passportSignIn]: "Iniciar sesión / Registrarse",
+	[Key.passportAccount]: "Perfil y seguridad",
+	[Key.passportSignOut]: "Cerrar sesión",
+	[Key.passportNotSignedIn]:
+		"Aún no has iniciado sesión: inicia sesión para sincronizar tu identidad de Pasaporte.",
+	[Key.passportAnonymous]: "Usuario del Pasaporte",
+	[Key.passportCallback]: "Completando el inicio de sesión, espera un momento…",
+	[Key.passportCallbackFailed]:
+		"No se pudo procesar la respuesta de inicio de sesión",
+	[Key.passportBack]: "Volver al Pasaporte",
+
 	[Key.skills]: "Habilidades",
 	[Key.skillsBanner]:
 		"Tecnologías y herramientas para convertir ideas en productos mantenibles.",

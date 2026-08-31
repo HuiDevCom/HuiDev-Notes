@@ -2,6 +2,10 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { animeConfig } from "@/config/animeConfig";
 import { devicesConfig } from "@/config/devicesConfig";
+import {
+	passportConfig,
+	resolvePassportOptions,
+} from "@/config/passportConfig";
 import { projectsConfig } from "@/config/projectsConfig";
 import { skillsConfig } from "@/config/skillsConfig";
 import { timelineConfig } from "@/config/timelineConfig";
@@ -107,6 +111,19 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		icon: "material-symbols:info-outline-rounded",
 		pageKey: "about",
 	},
+	Passport: {
+		name: i18n(I18nKey.passport),
+		url: "/passport/",
+		icon: "material-symbols:vpn-key-outline-rounded",
+		pageKey: "passport",
+	},
+	PassportProfile: {
+		name: i18n(I18nKey.passportProfile),
+		url: "/passport/profile/",
+		icon: "material-symbols:manage-accounts-rounded",
+		// 独立高亮键：与 /passport/ 登录页区分，避免二级菜单双双点亮
+		pageKey: "passport-profile",
+	},
 	GitHub: {
 		name: "GitHub",
 		url: "https://github.com/HuiDevCom/HuiDev-Notes",
@@ -123,6 +140,34 @@ export const LinkPresets: Record<string, NavBarLink> = {
 	},
 };
 
+const passportOptions = resolvePassportOptions(passportConfig);
+
+/** 风绘通行证下拉菜单：仅在功能开启且凭据齐备时出现导航入口 */
+const passportMenu: NavBarLink | null = passportOptions
+	? {
+			name: i18n(I18nKey.passport),
+			icon: "material-symbols:vpn-key-outline-rounded",
+			pageKey: "passport",
+			children: [
+				LinkPresets.Passport,
+				...(passportOptions.accountEntry === "internal"
+					? [LinkPresets.PassportProfile]
+					: []),
+				...(passportOptions.accountEntry === "external" &&
+				passportOptions.accountHref
+					? [
+							{
+								name: i18n(I18nKey.passportAccount),
+								url: passportOptions.accountHref,
+								icon: "material-symbols:manage-accounts-rounded",
+								external: true,
+							},
+						]
+					: []),
+			],
+		}
+	: null;
+
 const defaultNavBarConfig: NavBarConfig = {
 	links: [
 		LinkPresets.Home,
@@ -132,6 +177,7 @@ const defaultNavBarConfig: NavBarConfig = {
 		...(animeConfig.enable ? [LinkPresets.Anime] : []),
 		LinkPresets.Compass,
 		LinkPresets.Albums,
+		...(passportMenu ? [passportMenu] : []),
 		{
 			name: i18n(I18nKey.more),
 			icon: "material-symbols:apps-rounded",

@@ -53,6 +53,33 @@ export const en: Translation = {
 	[Key.compassNoResults]: "No sites matched your search",
 	[Key.compassCounts]: "sites",
 
+	[Key.passport]: "Passport",
+	[Key.passportProfile]: "Profile",
+	[Key.passportProfileBanner]:
+		"Manage your Passport profile and security settings.",
+	[Key.passportFieldName]: "Name",
+	[Key.passportFieldNickname]: "Nickname",
+	[Key.passportFieldWebsite]: "Website",
+	[Key.passportFieldUsername]: "Username",
+	[Key.passportFieldAvatar]: "Avatar URL",
+	[Key.passportSaveProfile]: "Save changes",
+	[Key.passportProfileSaved]: "Profile saved.",
+	[Key.passportNoChanges]: "No changes to save",
+	[Key.passportActionFailed]: "Action failed",
+	[Key.passportNeedSignIn]: "Sign in to manage your profile.",
+	[Key.passportProfileUnavailable]: "Unable to load account info",
+	[Key.passportBanner]:
+		"Sign in with Passport to manage your identity and profile.",
+	[Key.passportSignIn]: "Sign in / Sign up",
+	[Key.passportAccount]: "Profile & security",
+	[Key.passportSignOut]: "Sign out",
+	[Key.passportNotSignedIn]:
+		"You are not signed in yet — sign in to sync your Passport identity.",
+	[Key.passportAnonymous]: "Passport user",
+	[Key.passportCallback]: "Completing sign-in, please wait…",
+	[Key.passportCallbackFailed]: "Failed to handle the sign-in callback",
+	[Key.passportBack]: "Back to Passport",
+
 	[Key.skills]: "Skills",
 	[Key.skillsBanner]:
 		"Technologies and tools I use to turn ideas into maintainable products.",

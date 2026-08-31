@@ -39,6 +39,7 @@ export type SidebarPage =
 	| "timeline" // 时间线
 	| "albums" // 相册
 	| "about" // 关于
+	| "passport" // 风绘通行证（登录 / 个人资料）
 	| "categories" // 分类索引
 	| "tags" // 标签索引
 	| "rss" // RSS 订阅指南

@@ -1,0 +1,22 @@
+---
+/**
+ * 个人资料页：基于 Logto Account API 的站内账户资料管理（基本资料）。
+ * 关闭态（enable: false 或端点/App ID 未配置）时短路：不渲染岛组件，
+ * 页面主体为空、零外部请求、零 SDK 字节，导航入口同步隐藏。
+ */
+import PassportProfile from "@components/organisms/passport/PassportProfile.svelte";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { passportConfig, resolvePassportOptions } from "@/config";
+
+const options = resolvePassportOptions(passportConfig);
+---
+
+<MainGridLayout
+	title={i18n(I18nKey.passportProfile)}
+	description={i18n(I18nKey.passportProfileBanner)}
+	page="passport"
+>
+	{options && <PassportProfile options={options} client:load />}
+</MainGridLayout>

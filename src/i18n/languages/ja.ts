@@ -53,6 +53,33 @@ export const ja: Translation = {
 	[Key.compassNoResults]: "検索条件に一致するサイトがありません",
 	[Key.compassCounts]: "個のサイト",
 
+	[Key.passport]: "風絵パスポート",
+	[Key.passportProfile]: "プロフィール",
+	[Key.passportProfileBanner]:
+		"パスポートのプロフィールとセキュリティ設定を管理します。",
+	[Key.passportFieldName]: "名前",
+	[Key.passportFieldNickname]: "ニックネーム",
+	[Key.passportFieldWebsite]: "ウェブサイト",
+	[Key.passportFieldUsername]: "ユーザー名",
+	[Key.passportFieldAvatar]: "アバターURL",
+	[Key.passportSaveProfile]: "変更を保存",
+	[Key.passportProfileSaved]: "プロフィールを保存しました。",
+	[Key.passportNoChanges]: "変更はありません",
+	[Key.passportActionFailed]: "操作に失敗しました",
+	[Key.passportNeedSignIn]: "サインインしてプロフィールを管理してください。",
+	[Key.passportProfileUnavailable]: "アカウント情報を読み込めません",
+	[Key.passportBanner]:
+		"風絵パスポートでサインインして、身元とプロフィールを管理しましょう。",
+	[Key.passportSignIn]: "サインイン / 登録",
+	[Key.passportAccount]: "アカウント情報",
+	[Key.passportSignOut]: "サインアウト",
+	[Key.passportNotSignedIn]:
+		"まだサインインしていません。サインインするとパスポートの身元情報を同期できます。",
+	[Key.passportAnonymous]: "パスポートユーザー",
+	[Key.passportCallback]: "サインインを完了しています。しばらくお待ちください…",
+	[Key.passportCallbackFailed]: "サインインコールバックの処理に失敗しました",
+	[Key.passportBack]: "パスポートに戻る",
+
 	[Key.skills]: "スキル",
 	[Key.skillsBanner]:
 		"アイデアを保守しやすいプロダクトにするための技術とツール。",

@@ -52,6 +52,32 @@ export const ko: Translation = {
 	[Key.compassNoResults]: "검색어와 일치하는 사이트가 없습니다",
 	[Key.compassCounts]: "개 사이트",
 
+	[Key.passport]: "풍회 패스포트",
+	[Key.passportProfile]: "프로필",
+	[Key.passportProfileBanner]: "패스포트 프로필과 보안 설정을 관리하세요.",
+	[Key.passportFieldName]: "이름",
+	[Key.passportFieldNickname]: "닉네임",
+	[Key.passportFieldWebsite]: "웹사이트",
+	[Key.passportFieldUsername]: "사용자 이름",
+	[Key.passportFieldAvatar]: "아바타 URL",
+	[Key.passportSaveProfile]: "변경 사항 저장",
+	[Key.passportProfileSaved]: "프로필이 저장되었습니다.",
+	[Key.passportNoChanges]: "변경된 내용이 없습니다",
+	[Key.passportActionFailed]: "작업 실패",
+	[Key.passportNeedSignIn]: "로그인 후 프로필을 관리할 수 있습니다.",
+	[Key.passportProfileUnavailable]: "계정 정보를 불러올 수 없습니다",
+	[Key.passportBanner]:
+		"풍회 패스포트로 로그인하여 신원과 프로필을 관리하세요.",
+	[Key.passportSignIn]: "로그인 / 회원가입",
+	[Key.passportAccount]: "계정 정보",
+	[Key.passportSignOut]: "로그아웃",
+	[Key.passportNotSignedIn]:
+		"아직 로그인하지 않았습니다. 로그인하면 패스포트 신원 정보를 동기화할 수 있습니다.",
+	[Key.passportAnonymous]: "패스포트 사용자",
+	[Key.passportCallback]: "로그인을 완료하는 중입니다. 잠시만 기다려 주세요…",
+	[Key.passportCallbackFailed]: "로그인 콜백 처리에 실패했습니다",
+	[Key.passportBack]: "패스포트로 돌아가기",
+
 	[Key.skills]: "기술",
 	[Key.skillsBanner]:
 		"아이디어를 유지보수 가능한 제품으로 만드는 기술과 도구입니다.",

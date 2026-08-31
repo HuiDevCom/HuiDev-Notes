@@ -1,0 +1,22 @@
+---
+/**
+ * 风绘通行证登录回调页：处理 Logto OIDC 授权码回调（code/state），
+ * 完成后由客户端跳回通行证页。路径需与 passportConfig.callbackPath
+ * 及 Logto 控制台 Redirect URI 一致。
+ */
+import PassportPanel from "@components/organisms/passport/PassportPanel.svelte";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { passportConfig, resolvePassportOptions } from "@/config";
+
+const options = resolvePassportOptions(passportConfig);
+---
+
+<MainGridLayout
+	title={i18n(I18nKey.passport)}
+	description={i18n(I18nKey.passportBanner)}
+	page="passport"
+>
+	{options && <PassportPanel options={options} mode="callback" client:load />}
+</MainGridLayout>

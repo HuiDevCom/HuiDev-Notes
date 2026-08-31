@@ -53,6 +53,32 @@ export const vi: Translation = {
 	[Key.compassNoResults]: "Không có trang nào khớp với tìm kiếm",
 	[Key.compassCounts]: "trang",
 
+	[Key.passport]: "Hộ chiếu",
+	[Key.passportProfile]: "Hồ sơ",
+	[Key.passportProfileBanner]: "Quản lý hồ sơ và bảo mật Hộ chiếu của bạn.",
+	[Key.passportFieldName]: "Tên",
+	[Key.passportFieldNickname]: "Biệt danh",
+	[Key.passportFieldWebsite]: "Trang web",
+	[Key.passportFieldUsername]: "Tên người dùng",
+	[Key.passportFieldAvatar]: "URL ảnh đại diện",
+	[Key.passportSaveProfile]: "Lưu thay đổi",
+	[Key.passportProfileSaved]: "Đã lưu hồ sơ.",
+	[Key.passportNoChanges]: "Không có thay đổi để lưu",
+	[Key.passportActionFailed]: "Thao tác thất bại",
+	[Key.passportNeedSignIn]: "Đăng nhập để quản lý hồ sơ của bạn.",
+	[Key.passportProfileUnavailable]: "Không thể tải thông tin tài khoản",
+	[Key.passportBanner]:
+		"Đăng nhập bằng Hộ chiếu để quản lý danh tính và hồ sơ của bạn.",
+	[Key.passportSignIn]: "Đăng nhập / Đăng ký",
+	[Key.passportAccount]: "Hồ sơ & bảo mật",
+	[Key.passportSignOut]: "Đăng xuất",
+	[Key.passportNotSignedIn]:
+		"Bạn chưa đăng nhập — đăng nhập để đồng bộ danh tính Hộ chiếu của bạn.",
+	[Key.passportAnonymous]: "Người dùng Hộ chiếu",
+	[Key.passportCallback]: "Đang hoàn tất đăng nhập, vui lòng đợi…",
+	[Key.passportCallbackFailed]: "Không thể xử lý phản hồi đăng nhập",
+	[Key.passportBack]: "Quay lại Hộ chiếu",
+
 	[Key.skills]: "Kỹ năng",
 	[Key.skillsBanner]:
 		"Công nghệ và công cụ để biến ý tưởng thành sản phẩm dễ bảo trì.",

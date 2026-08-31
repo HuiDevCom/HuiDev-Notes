@@ -79,6 +79,7 @@
     "@iconify-json/fa6-solid": "^1.2.4",
     "@iconify-json/material-symbols": "^1.2.88",
     "@iconify/svelte": "^5.2.2",
+    "@logto/browser": "^3.0.13",
     "@material/material-color-utilities": "^0.4.0",
     "@panzoom/panzoom": "4.6.2",
     "@swup/astro": "^1.8.0",

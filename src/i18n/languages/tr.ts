@@ -52,6 +52,33 @@ export const tr: Translation = {
 	[Key.compassNoResults]: "Aramanızla eşleşen site yok",
 	[Key.compassCounts]: "site",
 
+	[Key.passport]: "Pasaport",
+	[Key.passportProfile]: "Profil",
+	[Key.passportProfileBanner]:
+		"Pasaport profilinizi ve güvenlik ayarlarınızı yönetin.",
+	[Key.passportFieldName]: "İsim",
+	[Key.passportFieldNickname]: "Takma ad",
+	[Key.passportFieldWebsite]: "Web sitesi",
+	[Key.passportFieldUsername]: "Kullanıcı adı",
+	[Key.passportFieldAvatar]: "Avatar URL",
+	[Key.passportSaveProfile]: "Değişiklikleri kaydet",
+	[Key.passportProfileSaved]: "Profil kaydedildi.",
+	[Key.passportNoChanges]: "Kaydedilecek değişiklik yok",
+	[Key.passportActionFailed]: "İşlem başarısız",
+	[Key.passportNeedSignIn]: "Profilinizi yönetmek için oturum açın.",
+	[Key.passportProfileUnavailable]: "Hesap bilgileri yüklenemedi",
+	[Key.passportBanner]:
+		"Kimliğinizi ve profilinizi yönetmek için Pasaport ile oturum açın.",
+	[Key.passportSignIn]: "Oturum aç / Kayıt ol",
+	[Key.passportAccount]: "Profil ve güvenlik",
+	[Key.passportSignOut]: "Oturumu kapat",
+	[Key.passportNotSignedIn]:
+		"Henüz oturum açmadınız — Pasaport kimliğinizi eşitlemek için oturum açın.",
+	[Key.passportAnonymous]: "Pasaport kullanıcısı",
+	[Key.passportCallback]: "Oturum açma tamamlanıyor, lütfen bekleyin…",
+	[Key.passportCallbackFailed]: "Oturum açma geri çağrısı işlenemedi",
+	[Key.passportBack]: "Pasaporta dön",
+
 	[Key.skills]: "Beceriler",
 	[Key.skillsBanner]:
 		"Fikirleri sürdürülebilir ürünlere dönüştürmek için kullandığım teknolojiler ve araçlar.",

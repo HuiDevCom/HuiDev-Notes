@@ -35,5 +35,10 @@ export function resolvePageKey(
 	if (pathname === "/albums" || pathname.startsWith("/albums/"))
 		return "albums";
 	if (pathname === "/about") return "about";
+	// 通行证资料页用独立高亮键（先于通用 /passport/ 前缀判断），
+	// 避免登录页与资料页的二级菜单同时点亮；侧栏过滤不受影响（走 data-current-page）
+	if (pathname.startsWith("/passport/profile")) return "passport-profile";
+	if (pathname === "/passport" || pathname.startsWith("/passport/"))
+		return "passport";
 	return "";
 }

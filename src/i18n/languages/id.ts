@@ -53,6 +53,32 @@ export const id: Translation = {
 	[Key.compassNoResults]: "Tidak ada situs yang cocok dengan pencarian",
 	[Key.compassCounts]: "situs",
 
+	[Key.passport]: "Paspor",
+	[Key.passportProfile]: "Profil",
+	[Key.passportProfileBanner]: "Kelola profil dan keamanan Paspor Anda.",
+	[Key.passportFieldName]: "Nama",
+	[Key.passportFieldNickname]: "Nama panggilan",
+	[Key.passportFieldWebsite]: "Situs web",
+	[Key.passportFieldUsername]: "Nama pengguna",
+	[Key.passportFieldAvatar]: "URL avatar",
+	[Key.passportSaveProfile]: "Simpan perubahan",
+	[Key.passportProfileSaved]: "Profil tersimpan.",
+	[Key.passportNoChanges]: "Tidak ada perubahan untuk disimpan",
+	[Key.passportActionFailed]: "Tindakan gagal",
+	[Key.passportNeedSignIn]: "Masuk untuk mengelola profil Anda.",
+	[Key.passportProfileUnavailable]: "Tidak dapat memuat info akun",
+	[Key.passportBanner]:
+		"Masuk dengan Paspor untuk mengelola identitas dan profil Anda.",
+	[Key.passportSignIn]: "Masuk / Daftar",
+	[Key.passportAccount]: "Profil & keamanan",
+	[Key.passportSignOut]: "Keluar",
+	[Key.passportNotSignedIn]:
+		"Anda belum masuk — masuk untuk menyinkronkan identitas Paspor Anda.",
+	[Key.passportAnonymous]: "Pengguna Paspor",
+	[Key.passportCallback]: "Menyelesaikan proses masuk, mohon tunggu…",
+	[Key.passportCallbackFailed]: "Gagal memproses callback masuk",
+	[Key.passportBack]: "Kembali ke Paspor",
+
 	[Key.skills]: "Keahlian",
 	[Key.skillsBanner]:
 		"Teknologi dan alat untuk mengubah ide menjadi produk yang mudah dipelihara.",
