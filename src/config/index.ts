@@ -55,6 +55,7 @@ export {
 	type ResolvedPassportOptions,
 	resolvePassportOptions,
 } from "./passportConfig";
+export { permalinkConfig } from "./permalinkConfig";
 export { POST_CARD_MIN_WIDTH, postListConfig } from "./postListConfig";
 export { profileConfig } from "./profileConfig";
 export { projectsConfig } from "./projectsConfig";

@@ -8,7 +8,7 @@ Material 3 を基盤とした、表現豊かなアニメ風ブログテーマ。
 
 [matsuzaka-yuki](https://github.com/matsuzaka-yuki) が心を込めて制作しています
 
-[デモ](https://shirone.mysqil.com/) · [ドキュメント](./docs/) · [問題を報告](https://github.com/LyraVoid/Shirone/issues)
+[デモ](https://shirone.mysqil.com/) · [ドキュメント](https://docs.shirone.mysqil.com/) · [問題を報告](https://github.com/LyraVoid/Shirone/issues)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md)
 
@@ -18,6 +18,9 @@ Material 3 を基盤とした、表現豊かなアニメ風ブログテーマ。
 [![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](./LICENSE)
 
 </div>
+
+> [!IMPORTANT]
+> **オンラインドキュメント：[docs.shirone.mysqil.com](https://docs.shirone.mysqil.com/)**
 
 ![Shirone のホームページ](./public/assets/projects/shirone.webp)
 
@@ -31,9 +34,6 @@ Material 3 を基盤とした、表現豊かなアニメ風ブログテーマ。
     <td align="center"><strong>静かな守り</strong><br><sub>SSR とアクセシビリティを優先し、無効な機能は負担を残しません。</sub></td>
   </tr>
 </table>
-
-> [!IMPORTANT]
-> Shirone は現在アルファ版です。最初の安定版がリリースされるまで、設定やコンポーネント API が変更される場合があります。
 
 ## ✦ すべての物語に、小さな魔法を
 

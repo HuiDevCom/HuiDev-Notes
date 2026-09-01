@@ -8,7 +8,7 @@
 
 由 [matsuzaka-yuki](https://github.com/matsuzaka-yuki) 用心制作
 
-[在线预览](https://shirone.mysqil.com/) · [项目文档](./docs/) · [反馈问题](https://github.com/LyraVoid/Shirone/issues)
+[在线预览](https://shirone.mysqil.com/) · [项目文档](https://docs.shirone.mysqil.com/) · [反馈问题](https://github.com/LyraVoid/Shirone/issues)
 
 [English](./README.md) | [简体中文](./README.zh-CN.md) | [繁體中文](./README.zh-TW.md) | [日本語](./README.ja.md)
 
@@ -18,6 +18,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-3DA639.svg)](./LICENSE)
 
 </div>
+
+> [!IMPORTANT]
+> **在线文档：[docs.shirone.mysqil.com](https://docs.shirone.mysqil.com/)**
 
 ![Shirone 首页](./public/assets/projects/shirone.webp)
 
@@ -31,9 +34,6 @@
     <td align="center"><strong>安静守护</strong><br><sub>SSR 优先、无障碍友好，可选功能关闭时真正不留负担。</sub></td>
   </tr>
 </table>
-
-> [!IMPORTANT]
-> Shirone 目前仍处于 Alpha 阶段，首个稳定版本发布前，配置和组件 API 可能发生变化。
 
 ## ✦ 写给每个故事的小小咒语
 
