@@ -186,10 +186,18 @@ const defaultNavBarConfig: NavBarConfig = {
 	links: [
 		LinkPresets.Home,
 		LinkPresets.Archive,
-		LinkPresets.Friends,
+		{
+			// 社交下拉：友链 + 留言（均随各自页面开关显隐，全关时菜单隐藏）
+			name: i18n(I18nKey.social),
+			icon: "material-symbols:forum-outline-rounded",
+			pageKey: "social",
+			children: [
+				LinkPresets.Friends,
+				...(guestbookConfig.enable ? [LinkPresets.Guestbook] : []),
+			],
+		},
 		LinkPresets.Moments,
 		...(animeConfig.enable ? [LinkPresets.Anime] : []),
-		LinkPresets.Compass,
 		LinkPresets.Albums,
 		...(passportMenu ? [passportMenu] : []),
 		{
@@ -204,9 +212,9 @@ const defaultNavBarConfig: NavBarConfig = {
 				// 需要时取消注释即可
 				// LinkPresets.Categories,
 				// LinkPresets.Tags,
-				...(guestbookConfig.enable ? [LinkPresets.Guestbook] : []),
 				LinkPresets.About,
 				...(sponsorConfig.enable ? [LinkPresets.Sponsor] : []),
+				LinkPresets.Compass,
 				LinkPresets.Umami,
 				LinkPresets.GitHub,
 			],

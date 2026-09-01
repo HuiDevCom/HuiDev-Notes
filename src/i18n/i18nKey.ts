@@ -292,6 +292,7 @@ enum I18nKey {
 	reset = "reset",
 
 	more = "more",
+	social = "social",
 	categoriesViewAll = "categoriesViewAll",
 	tagsViewAll = "tagsViewAll",
 

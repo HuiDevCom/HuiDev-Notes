@@ -276,6 +276,7 @@ export const th: Translation = {
 	[Key.systemMode]: "ตามระบบ",
 
 	[Key.more]: "ดูเพิ่ม",
+	[Key.social]: "สังคม",
 	[Key.categoriesViewAll]: "ดูหมวดหมู่ทั้งหมด",
 	[Key.paginationPrev]: "หน้าก่อนหน้า",
 	[Key.paginationNext]: "หน้าถัดไป",

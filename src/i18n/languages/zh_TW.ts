@@ -272,6 +272,7 @@ export const zh_TW: Translation = {
 	[Key.systemMode]: "跟隨系統",
 
 	[Key.more]: "更多",
+	[Key.social]: "社交",
 	[Key.categoriesViewAll]: "查看全部分類",
 	[Key.paginationPrev]: "上一頁",
 	[Key.paginationNext]: "下一頁",

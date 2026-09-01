@@ -284,6 +284,7 @@ export const ko: Translation = {
 	[Key.systemMode]: "시스템 모드",
 
 	[Key.more]: "더 보기",
+	[Key.social]: "소셜",
 	[Key.categoriesViewAll]: "모든 카테고리 보기",
 	[Key.paginationPrev]: "이전 페이지",
 	[Key.paginationNext]: "다음 페이지",

@@ -287,6 +287,7 @@ export const ja: Translation = {
 	[Key.systemMode]: "システム",
 
 	[Key.more]: "もっと",
+	[Key.social]: "ソーシャル",
 	[Key.categoriesViewAll]: "すべてのカテゴリを見る",
 	[Key.paginationPrev]: "前のページ",
 	[Key.paginationNext]: "次のページ",

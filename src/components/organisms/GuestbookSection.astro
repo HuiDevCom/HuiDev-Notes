@@ -1,13 +1,14 @@
 ---
 /**
  * 留言页页头区块（SSR 静态，零水合零 JS）：
- * 卡片：页头（图标徽章 + 标题 / 副标题）+ 可选留言引导列表（primary 软底信息框）。
+ * 卡片：页头（主题色图标 + 标题 / 副标题）+ 可选留言引导列表（primary 软底信息框）。
  * 留言区由页面层按评论配置编排（CommentSection 或 GuestbookHint 占位），
  * 本区块只负责页头与引导内容。
  * 注意：@iconify/svelte 在纯 SSR 路径不渲染图标，本区块内图标一律 astro-icon，
  * Card 原子按 SSR 静态输出使用；布局工具类作用于 Card 根（Svelte 渲染，作用域样式不可达）。
  */
 import Card from "@components/atoms/display/Card.svelte";
+import PageHeader from "@components/atoms/display/PageHeader.astro";
 import { Icon } from "astro-icon/components";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
@@ -21,17 +22,11 @@ const { guidelines = [] } = Astro.props;
 ---
 
 <Card color="var(--card-bg)" radius="l" class="guestbook-section px-8 py-6">
-	<!-- 页面标题和描述 -->
-	<div class="guestbook-section__header">
-		<div class="guestbook-section__badge">
-			<Icon
-				name="material-symbols:forum-outline-rounded"
-				aria-hidden="true"
-			/>
-		</div>
-		<h1 class="guestbook-section__title">{i18n(I18nKey.guestbook)}</h1>
-	</div>
-	<p class="guestbook-section__subtitle">{i18n(I18nKey.guestbookBanner)}</p>
+	<PageHeader
+		icon="material-symbols:forum-outline-rounded"
+		title={i18n(I18nKey.guestbook)}
+		subtitle={i18n(I18nKey.guestbookBanner)}
+	/>
 
 	<!-- 留言引导 -->
 	{guidelines.length > 0 && (
@@ -53,44 +48,11 @@ const { guidelines = [] } = Astro.props;
 <style lang="stylus">
 /* Card 根由 Svelte 渲染，内边距与间距走 Tailwind 工具类；此处仅修饰本模板内元素 */
 .guestbook-section
-	&__header
-		display: flex
-		align-items: center
-		gap: 0.75rem
-
-	&__badge
-		display: flex
-		align-items: center
-		justify-content: center
-		flex-shrink: 0
-		width: 2rem
-		height: 2rem
-		border-radius: var(--shape-corner-m)
-		background: var(--primary)
-
-		:global(svg)
-			width: 1.5rem
-			height: 1.5rem
-			color: var(--on-primary)
-
-	&__title
-		margin: 0
-		color: var(--on-surface)
-		font: var(--m3e-type-headline-medium)
-		font-weight: 700
-		line-height: 1.2
-
-	&__subtitle
-		margin: 0.75rem 0 0
-		color: var(--on-surface-variant)
-		font: var(--m3e-type-body-medium)
-		line-height: 1.625
-
 	&__guidelines
 		display: flex
 		flex-direction: column
 		gap: 0.625rem
-		margin: 1.5rem 0 0
+		margin: 0
 		padding: 1rem 1.25rem
 		list-style: none
 		border-radius: var(--shape-corner-m)

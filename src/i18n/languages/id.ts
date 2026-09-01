@@ -289,6 +289,7 @@ export const id: Translation = {
 	[Key.systemMode]: "Sistem",
 
 	[Key.more]: "Lainnya",
+	[Key.social]: "Sosial",
 	[Key.categoriesViewAll]: "Lihat semua kategori",
 	[Key.paginationPrev]: "Halaman sebelumnya",
 	[Key.paginationNext]: "Halaman berikutnya",

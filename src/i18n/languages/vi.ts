@@ -288,6 +288,7 @@ export const vi: Translation = {
 	[Key.systemMode]: "Hệ thống",
 
 	[Key.more]: "Thêm",
+	[Key.social]: "Xã hội",
 	[Key.categoriesViewAll]: "Xem tất cả danh mục",
 	[Key.paginationPrev]: "Trang trước",
 	[Key.paginationNext]: "Trang sau",

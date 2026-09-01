@@ -287,6 +287,7 @@ export const en: Translation = {
 	[Key.systemMode]: "System",
 
 	[Key.more]: "More",
+	[Key.social]: "Social",
 	[Key.categoriesViewAll]: "View all categories",
 	[Key.paginationPrev]: "Previous page",
 	[Key.paginationNext]: "Next page",
