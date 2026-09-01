@@ -31,6 +31,13 @@ export const ja: Translation = {
 	[Key.sponsorEmpty]:
 		"まだ支援はありません —— 最初の応援をお待ちしています。",
 
+	[Key.guestbook]: "メッセージ",
+	[Key.guestbookBanner]:
+		"あなたの足跡を残し、感想や提案をぜひ共有してください。",
+	[Key.guestbookCommentsDisabled]: "コメントシステムが無効です",
+	[Key.guestbookCommentsDisabledHint]:
+		"コメントシステムを有効にすると、訪問者がここにメッセージを残せます",
+
 	[Key.moments]: "モーメンツ",
 	[Key.momentsNoResults]: "条件に一致するモーメンツはありません",
 	[Key.momentsBanner]:

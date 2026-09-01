@@ -30,6 +30,13 @@ export const th: Translation = {
 	[Key.sponsorEmpty]:
 		"ยังไม่มีผู้สนับสนุน — ทุกการสนับสนุนคือจุดเริ่มต้นที่ดี",
 
+	[Key.guestbook]: "กระดานฝากข้อความ",
+	[Key.guestbookBanner]:
+		"ฝากรอยเท้าของคุณไว้ที่นี่ แบ่งปันความคิดและข้อเสนอแนะ",
+	[Key.guestbookCommentsDisabled]: "ยังไม่ได้เปิดใช้งานระบบคอมเมนต์",
+	[Key.guestbookCommentsDisabledHint]:
+		"เปิดใช้งานระบบคอมเมนต์เพื่อให้ผู้เข้าชมฝากข้อความไว้ที่นี่ได้",
+
 	[Key.moments]: "โมเมนต์",
 	[Key.momentsNoResults]: "ไม่มีโมเมนต์ที่ตรงกับตัวกรอง",
 	[Key.momentsBanner]: "บันทึกสั้น ๆ — ชีวิต งาน และความสุขเล็ก ๆ",

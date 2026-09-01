@@ -31,6 +31,13 @@ export const es: Translation = {
 	[Key.sponsorEmpty]:
 		"Aún no hay apoyos — cada muestra de apoyo es un gran comienzo.",
 
+	[Key.guestbook]: "Mensajes",
+	[Key.guestbookBanner]:
+		"Deja tu huella aquí: comparte tus ideas y sugerencias.",
+	[Key.guestbookCommentsDisabled]: "Sistema de comentarios no habilitado",
+	[Key.guestbookCommentsDisabledHint]:
+		"Habilita el sistema de comentarios para que los visitantes puedan dejar mensajes aquí",
+
 	[Key.moments]: "Momentos",
 	[Key.momentsNoResults]: "No hay momentos que coincidan con los filtros",
 	[Key.momentsBanner]: "Notas cortas — vida, trabajo y pequeñas alegrías.",

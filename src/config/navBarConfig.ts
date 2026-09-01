@@ -2,6 +2,7 @@ import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import { animeConfig } from "@/config/animeConfig";
 import { devicesConfig } from "@/config/devicesConfig";
+import { guestbookConfig } from "@/config/guestbookConfig";
 import {
 	passportConfig,
 	resolvePassportOptions,
@@ -51,6 +52,12 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		url: "/sponsor/",
 		icon: "material-symbols:favorite-outline-rounded",
 		pageKey: "sponsor",
+	},
+	Guestbook: {
+		name: i18n(I18nKey.guestbook),
+		url: "/guestbook/",
+		icon: "material-symbols:forum-outline-rounded",
+		pageKey: "guestbook",
 	},
 	Moments: {
 		name: i18n(I18nKey.moments),
@@ -197,6 +204,7 @@ const defaultNavBarConfig: NavBarConfig = {
 				// 需要时取消注释即可
 				// LinkPresets.Categories,
 				// LinkPresets.Tags,
+				...(guestbookConfig.enable ? [LinkPresets.Guestbook] : []),
 				LinkPresets.About,
 				...(sponsorConfig.enable ? [LinkPresets.Sponsor] : []),
 				LinkPresets.Umami,

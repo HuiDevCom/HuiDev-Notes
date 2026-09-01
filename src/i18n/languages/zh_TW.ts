@@ -28,6 +28,11 @@ export const zh_TW: Translation = {
 	[Key.sponsorMethodsEmpty]: "站長還沒有設定贊助方式",
 	[Key.sponsorEmpty]: "還沒有收到贊助 —— 每一份支持都是好的開始。",
 
+	[Key.guestbook]: "留言",
+	[Key.guestbookBanner]: "歡迎留下你的足跡，分享你的想法和建議。",
+	[Key.guestbookCommentsDisabled]: "評論系統未啟用",
+	[Key.guestbookCommentsDisabledHint]: "啟用評論系統後，訪客即可在此留言",
+
 	[Key.moments]: "動態",
 	[Key.momentsNoResults]: "沒有符合條件的動態",
 	[Key.momentsBanner]: "隨手記錄的碎碎念 —— 生活、折騰與一切小確幸。",

@@ -31,6 +31,13 @@ export const tr: Translation = {
 	[Key.sponsorEmpty]:
 		"Henüz destek yok — her destek güzel bir başlangıçtır.",
 
+	[Key.guestbook]: "Ziyaretçi Defteri",
+	[Key.guestbookBanner]:
+		"İzini burada bırak — düşüncelerini ve önerilerini paylaş.",
+	[Key.guestbookCommentsDisabled]: "Yorum sistemi etkin değil",
+	[Key.guestbookCommentsDisabledHint]:
+		"Ziyaretçilerin buraya mesaj bırakabilmesi için yorum sistemini etkinleştir",
+
 	[Key.moments]: "Anlar",
 	[Key.momentsNoResults]: "Filtrelerle eşleşen an yok",
 	[Key.momentsBanner]: "Kısa notlar — hayat, iş ve küçük mutluluklar.",

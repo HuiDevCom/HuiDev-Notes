@@ -37,6 +37,7 @@ export {
 	resolveFontOptions,
 } from "./fontConfig";
 export { footerConfig } from "./footerConfig";
+export { guestbookConfig } from "./guestbookConfig";
 export {
 	imageBloomConfig,
 	resolveImageBloomOptions,

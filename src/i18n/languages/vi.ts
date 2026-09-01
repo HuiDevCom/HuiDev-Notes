@@ -31,6 +31,13 @@ export const vi: Translation = {
 	[Key.sponsorEmpty]:
 		"Chưa có người ủng hộ — mỗi sự ủng hộ đều là một khởi đầu tốt đẹp.",
 
+	[Key.guestbook]: "Lời nhắn",
+	[Key.guestbookBanner]:
+		"Hãy để lại dấu ấn của bạn tại đây — chia sẻ suy nghĩ và góp ý.",
+	[Key.guestbookCommentsDisabled]: "Hệ thống bình luận chưa được bật",
+	[Key.guestbookCommentsDisabledHint]:
+		"Bật hệ thống bình luận để khách truy cập có thể để lại lời nhắn tại đây",
+
 	[Key.moments]: "Khoảnh khắc",
 	[Key.momentsNoResults]: "Không có khoảnh khắc nào khớp bộ lọc",
 	[Key.momentsBanner]:

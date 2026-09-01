@@ -31,6 +31,13 @@ export const en: Translation = {
 	[Key.sponsorEmpty]:
 		"No supporters yet — every bit of support is a great start.",
 
+	[Key.guestbook]: "Guestbook",
+	[Key.guestbookBanner]:
+		"Leave your mark here — share your thoughts and suggestions.",
+	[Key.guestbookCommentsDisabled]: "Comment system not enabled",
+	[Key.guestbookCommentsDisabledHint]:
+		"Enable the comment system so visitors can leave messages here",
+
 	[Key.moments]: "Moments",
 	[Key.momentsNoResults]: "No moments matched your filters",
 	[Key.momentsBanner]:

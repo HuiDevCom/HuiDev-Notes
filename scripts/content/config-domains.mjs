@@ -135,6 +135,12 @@ export const CONFIG_DOMAINS = Object.freeze([
 		module: "@/types/sponsorConfig",
 	},
 	{
+		key: "guestbook",
+		file: "guestbook",
+		type: "GuestbookConfig",
+		module: "@/types/guestbookConfig",
+	},
+	{
 		key: "music",
 		file: "music",
 		type: "MusicConfig",

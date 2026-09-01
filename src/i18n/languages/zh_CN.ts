@@ -28,6 +28,11 @@ export const zh_CN: Translation = {
 	[Key.sponsorMethodsEmpty]: "站长还没有配置赞助方式",
 	[Key.sponsorEmpty]: "还没有收到赞助 —— 每一份支持都是好的开始。",
 
+	[Key.guestbook]: "留言",
+	[Key.guestbookBanner]: "欢迎留下你的足迹，分享你的想法和建议。",
+	[Key.guestbookCommentsDisabled]: "评论系统未启用",
+	[Key.guestbookCommentsDisabledHint]: "启用评论系统后，访客即可在此留言",
+
 	[Key.moments]: "动态",
 	[Key.momentsNoResults]: "没有符合条件的动态",
 	[Key.momentsBanner]: "随手记录的碎碎念 —— 生活、折腾与一切小确幸。",

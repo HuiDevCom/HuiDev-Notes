@@ -31,6 +31,13 @@ export const id: Translation = {
 	[Key.sponsorEmpty]:
 		"Belum ada pendukung — setiap dukungan adalah awal yang baik.",
 
+	[Key.guestbook]: "Buku Tamu",
+	[Key.guestbookBanner]:
+		"Tinggalkan jejakmu di sini — bagikan pemikiran dan saranmu.",
+	[Key.guestbookCommentsDisabled]: "Sistem komentar belum diaktifkan",
+	[Key.guestbookCommentsDisabledHint]:
+		"Aktifkan sistem komentar agar pengunjung dapat meninggalkan pesan di sini",
+
 	[Key.moments]: "Momen",
 	[Key.momentsNoResults]: "Tidak ada momen yang cocok dengan filter",
 	[Key.momentsBanner]:

@@ -1,0 +1,45 @@
+---
+/** 留言页：配置层开关在构建期守卫路由；留言数据由评论系统托管在 /guestbook/ 路径。 */
+import GuestbookHint from "@components/molecules/GuestbookHint.astro";
+import GuestbookSection from "@components/organisms/GuestbookSection.astro";
+import CommentSection from "@components/organisms/comment/CommentSection.astro";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import {
+	commentConfig,
+	guestbookConfig,
+	resolveCommentOptions,
+	siteConfig,
+} from "@/config";
+import { guestbookGuidelines } from "../data/guestbook";
+import { url } from "@utils/url-utils";
+
+if (!guestbookConfig.enable) {
+	return Astro.redirect("/404/");
+}
+
+const commentOptions = resolveCommentOptions(commentConfig);
+---
+
+<MainGridLayout
+	title={i18n(I18nKey.guestbook)}
+	description={i18n(I18nKey.guestbookBanner)}
+	page="guestbook"
+>
+	<GuestbookSection guidelines={guestbookGuidelines} />
+	{commentOptions ? (
+		<CommentSection
+			context={{
+				key: "guestbook",
+				path: url("/guestbook/"),
+				title: i18n(I18nKey.guestbook),
+				// Twikoo 期望 BCP-47 连字符格式（zh-CN），站点配置为下划线格式（zh_CN）
+				language: siteConfig.lang.replace("_", "-"),
+			}}
+			class="mt-4 onload-animation"
+		/>
+	) : (
+		<GuestbookHint class="mt-4 onload-animation" />
+	)}
+</MainGridLayout>

@@ -26,6 +26,11 @@ enum I18nKey {
 	sponsorMethodsEmpty = "sponsorMethodsEmpty",
 	sponsorEmpty = "sponsorEmpty",
 
+	guestbook = "guestbook",
+	guestbookBanner = "guestbookBanner",
+	guestbookCommentsDisabled = "guestbookCommentsDisabled",
+	guestbookCommentsDisabledHint = "guestbookCommentsDisabledHint",
+
 	moments = "moments",
 	momentsNoResults = "momentsNoResults",
 	momentsBanner = "momentsBanner",

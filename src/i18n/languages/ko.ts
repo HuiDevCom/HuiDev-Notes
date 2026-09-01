@@ -31,6 +31,12 @@ export const ko: Translation = {
 	[Key.sponsorEmpty]:
 		"아직 후원이 없습니다 —— 첫 응원을 기다리고 있어요.",
 
+	[Key.guestbook]: "방명록",
+	[Key.guestbookBanner]: "흔적을 남기고 생각과 제안을 자유롭게 나눠주세요.",
+	[Key.guestbookCommentsDisabled]: "댓글 시스템이 사용 안 함 상태입니다",
+	[Key.guestbookCommentsDisabledHint]:
+		"댓글 시스템을 사용하면 방문자가 여기에 메시지를 남길 수 있습니다",
+
 	[Key.moments]: "모먼트",
 	[Key.momentsNoResults]: "조건에 맞는 모먼트가 없습니다",
 	[Key.momentsBanner]: "일상과 작업, 그리고 사소한 행복을 짧게 기록합니다.",
