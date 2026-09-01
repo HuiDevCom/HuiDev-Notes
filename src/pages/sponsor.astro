@@ -1,0 +1,29 @@
+---
+/** 赞助页：配置层规则在构建期结合数据层传入静态区块，路由负责开关与编排。 */
+import SponsorSection from "@components/organisms/SponsorSection.astro";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import MainGridLayout from "@layouts/MainGridLayout.astro";
+import { sponsorConfig } from "@/config/sponsorConfig";
+import { resolveSponsorMethods } from "@/utils/feature-data";
+import { getSponsorRecords } from "../data/sponsor";
+
+if (!sponsorConfig.enable) {
+	return Astro.redirect("/404/");
+}
+
+const methods = resolveSponsorMethods(sponsorConfig);
+---
+
+<MainGridLayout
+	title={i18n(I18nKey.sponsor)}
+	description={i18n(I18nKey.sponsorBanner)}
+	page="sponsor"
+>
+	<SponsorSection
+		{methods}
+		records={getSponsorRecords()}
+		showList={sponsorConfig.showList !== false}
+		usage={sponsorConfig.usage}
+	/>
+</MainGridLayout>

@@ -19,6 +19,18 @@ export const es: Translation = {
 	[Key.friendsCount]: "amigo",
 	[Key.friendsCounts]: "amigos",
 
+	[Key.sponsor]: "Patrocinio",
+	[Key.sponsorBanner]:
+		"Si mis artículos te resultan útiles, invítame a un café para seguir creando.",
+	[Key.sponsorWays]: "Formas de apoyar",
+	[Key.sponsorScanQr]: "Escanea para apoyar",
+	[Key.sponsorVisit]: "Ir al enlace",
+	[Key.sponsorList]: "Lista de apoyos",
+	[Key.sponsorCounts]: "apoyos",
+	[Key.sponsorMethodsEmpty]: "Aún no se han configurado formas de apoyo",
+	[Key.sponsorEmpty]:
+		"Aún no hay apoyos — cada muestra de apoyo es un gran comienzo.",
+
 	[Key.moments]: "Momentos",
 	[Key.momentsNoResults]: "No hay momentos que coincidan con los filtros",
 	[Key.momentsBanner]: "Notas cortas — vida, trabajo y pequeñas alegrías.",

@@ -8,6 +8,7 @@ import {
 } from "@/config/passportConfig";
 import { projectsConfig } from "@/config/projectsConfig";
 import { skillsConfig } from "@/config/skillsConfig";
+import { sponsorConfig } from "@/config/sponsorConfig";
 import { timelineConfig } from "@/config/timelineConfig";
 import type {
 	NavBarConfig,
@@ -44,6 +45,12 @@ export const LinkPresets: Record<string, NavBarLink> = {
 		url: "/friends/",
 		icon: "material-symbols:handshake-outline-rounded",
 		pageKey: "friends",
+	},
+	Sponsor: {
+		name: i18n(I18nKey.sponsor),
+		url: "/sponsor/",
+		icon: "material-symbols:favorite-outline-rounded",
+		pageKey: "sponsor",
 	},
 	Moments: {
 		name: i18n(I18nKey.moments),
@@ -191,6 +198,7 @@ const defaultNavBarConfig: NavBarConfig = {
 				// LinkPresets.Categories,
 				// LinkPresets.Tags,
 				LinkPresets.About,
+				...(sponsorConfig.enable ? [LinkPresets.Sponsor] : []),
 				LinkPresets.Umami,
 				LinkPresets.GitHub,
 			],

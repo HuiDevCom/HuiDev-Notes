@@ -18,6 +18,16 @@ export const zh_TW: Translation = {
 	[Key.friendsCount]: "個友鏈",
 	[Key.friendsCounts]: "個友鏈",
 
+	[Key.sponsor]: "贊助",
+	[Key.sponsorBanner]: "如果這些內容對你有幫助，歡迎請我喝杯咖啡。",
+	[Key.sponsorWays]: "贊助方式",
+	[Key.sponsorScanQr]: "掃碼贊助",
+	[Key.sponsorVisit]: "前往贊助",
+	[Key.sponsorList]: "贊助名單",
+	[Key.sponsorCounts]: "位贊助者",
+	[Key.sponsorMethodsEmpty]: "站長還沒有設定贊助方式",
+	[Key.sponsorEmpty]: "還沒有收到贊助 —— 每一份支持都是好的開始。",
+
 	[Key.moments]: "動態",
 	[Key.momentsNoResults]: "沒有符合條件的動態",
 	[Key.momentsBanner]: "隨手記錄的碎碎念 —— 生活、折騰與一切小確幸。",

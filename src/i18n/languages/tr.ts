@@ -19,6 +19,18 @@ export const tr: Translation = {
 	[Key.friendsCount]: "arkadaş",
 	[Key.friendsCounts]: "arkadaş",
 
+	[Key.sponsor]: "Destek Ol",
+	[Key.sponsorBanner]:
+		"Yazılarım işinize yaradıysa, bir kahve ısmarlayarak destek olabilirsiniz.",
+	[Key.sponsorWays]: "Destek Yolları",
+	[Key.sponsorScanQr]: "Destek olmak için QR kodu okutun",
+	[Key.sponsorVisit]: "Bağlantıya git",
+	[Key.sponsorList]: "Destekçiler",
+	[Key.sponsorCounts]: "destekçi",
+	[Key.sponsorMethodsEmpty]: "Henüz bir destek yöntemi eklenmedi",
+	[Key.sponsorEmpty]:
+		"Henüz destek yok — her destek güzel bir başlangıçtır.",
+
 	[Key.moments]: "Anlar",
 	[Key.momentsNoResults]: "Filtrelerle eşleşen an yok",
 	[Key.momentsBanner]: "Kısa notlar — hayat, iş ve küçük mutluluklar.",

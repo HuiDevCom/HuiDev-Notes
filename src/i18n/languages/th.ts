@@ -18,6 +18,18 @@ export const th: Translation = {
 	[Key.friendsCount]: "ลิงก์",
 	[Key.friendsCounts]: "ลิงก์",
 
+	[Key.sponsor]: "สนับสนุน",
+	[Key.sponsorBanner]:
+		"หากเนื้อหาเหล่านี้เป็นประโยชน์ต่อคุณ ชวนกาแฟสักแก้วก็เป็นกำลังใจ",
+	[Key.sponsorWays]: "ช่องทางสนับสนุน",
+	[Key.sponsorScanQr]: "สแกนเพื่อสนับสนุน",
+	[Key.sponsorVisit]: "ไปที่ลิงก์",
+	[Key.sponsorList]: "รายชื่อผู้สนับสนุน",
+	[Key.sponsorCounts]: "คน",
+	[Key.sponsorMethodsEmpty]: "ยังไม่มีช่องทางสนับสนุนที่ตั้งค่าไว้",
+	[Key.sponsorEmpty]:
+		"ยังไม่มีผู้สนับสนุน — ทุกการสนับสนุนคือจุดเริ่มต้นที่ดี",
+
 	[Key.moments]: "โมเมนต์",
 	[Key.momentsNoResults]: "ไม่มีโมเมนต์ที่ตรงกับตัวกรอง",
 	[Key.momentsBanner]: "บันทึกสั้น ๆ — ชีวิต งาน และความสุขเล็ก ๆ",

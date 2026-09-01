@@ -19,6 +19,18 @@ export const ko: Translation = {
 	[Key.friendsCount]: "개의 친구 링크",
 	[Key.friendsCounts]: "개의 친구 링크",
 
+	[Key.sponsor]: "후원",
+	[Key.sponsorBanner]:
+		"글이 도움이 되었다면 커피 한 잔으로 응원해 주세요.",
+	[Key.sponsorWays]: "후원 방법",
+	[Key.sponsorScanQr]: "QR 코드로 후원",
+	[Key.sponsorVisit]: "후원하러 가기",
+	[Key.sponsorList]: "후원자 명단",
+	[Key.sponsorCounts]: "명의 후원자",
+	[Key.sponsorMethodsEmpty]: "아직 후원 방법이 등록되지 않았습니다",
+	[Key.sponsorEmpty]:
+		"아직 후원이 없습니다 —— 첫 응원을 기다리고 있어요.",
+
 	[Key.moments]: "모먼트",
 	[Key.momentsNoResults]: "조건에 맞는 모먼트가 없습니다",
 	[Key.momentsBanner]: "일상과 작업, 그리고 사소한 행복을 짧게 기록합니다.",

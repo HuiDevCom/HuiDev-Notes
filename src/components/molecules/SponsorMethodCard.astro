@@ -1,0 +1,111 @@
+---
+/**
+ * 赞助方式卡片：渠道图标 + 名称 / 可选说明 / 收款码或外链按钮，内容居中排版。
+ * 收款码容器固定白底、最大 200px 正方形——二维码识别需要高对比浅色背景，
+ * 属内容级例外（见 DESIGN.md 例外条款）。
+ * Card 根由 Svelte 渲染：作用域样式（双类特异性）会压过单类工具类，
+ * 故居中布局在样式块内以 :global(.sponsor-method) 声明而非工具类。
+ */
+import Button from "@components/atoms/action/Button.svelte";
+import Card from "@components/atoms/display/Card.svelte";
+import { Icon } from "astro-icon/components";
+import I18nKey from "@i18n/i18nKey";
+import { i18n } from "@i18n/translation";
+import type { SponsorMethod } from "@/types/sponsorConfig";
+
+interface Props {
+	method: SponsorMethod;
+}
+const { method } = Astro.props;
+---
+
+<Card variant="outlined" radius="l" class="sponsor-method p-6">
+	<div class="sponsor-method__head">
+		{method.icon && (
+			<Icon name={method.icon} class="sponsor-method__icon" aria-hidden="true" />
+		)}
+		<h3 class="sponsor-method__name">{method.name}</h3>
+	</div>
+
+	{method.description && (
+		<p class="sponsor-method__desc">{method.description}</p>
+	)}
+
+	{method.qrCode && (
+		<div class="sponsor-method__qr">
+			<img
+				src={method.qrCode}
+				alt={`${method.name} ${i18n(I18nKey.sponsorScanQr)}`}
+				loading="lazy"
+				decoding="async"
+			/>
+		</div>
+	)}
+
+	{method.link && (
+		<Button
+			href={method.link}
+			target="_blank"
+			rel="noopener noreferrer"
+			variant="filled"
+			size="small"
+			ariaLabel={`${i18n(I18nKey.sponsorVisit)} · ${method.name}`}
+		>
+			{i18n(I18nKey.sponsorVisit)}
+			<Icon name="material-symbols:open-in-new-rounded" aria-hidden="true" />
+		</Button>
+	)}
+</Card>
+
+<style lang="stylus">
+/* Card 根由 Svelte 渲染，其作用域样式（双类特异性）会压过单类工具类，
+   无法依赖父级 flex 居中：改用 text-align + margin auto 实现居中；
+   悬停描边用双类特异性越过 Card outlined 变体的边色声明（所有权边界：.sponsor-method） */
+:global(.sponsor-method)
+	text-align: center
+
+:global(.sponsor-method.sponsor-method:hover)
+	border-color: var(--primary)
+
+.sponsor-method
+	&__head
+		display: flex
+		align-items: center
+		justify-content: center
+		gap: 0.75rem
+		margin-bottom: 1rem
+
+	&__icon
+		color: var(--on-surface)
+		width: 1.5rem
+		height: 1.5rem
+
+	&__name
+		margin: 0
+		color: var(--on-surface)
+		font: var(--m3e-type-title-large)
+		font-weight: 600
+
+	&__desc
+		margin: 0 0 1rem
+		color: var(--on-surface-variant)
+		font: var(--m3e-type-body-small)
+		line-height: 1.5
+		text-align: center
+
+	/* 二维码识别需要高对比浅色背景：白底为内容级例外（勿改暗色跟随） */
+	&__qr
+		width: 100%
+		max-width: 12.5rem
+		aspect-ratio: 1
+		margin: 0 auto 1rem
+		padding: 1rem
+		border-radius: var(--shape-corner-m)
+		background: #fff
+		box-shadow: var(--m3e-elevation-1)
+
+		img
+			width: 100%
+			height: 100%
+			object-fit: contain
+</style>

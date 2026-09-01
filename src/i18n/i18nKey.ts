@@ -16,6 +16,16 @@ enum I18nKey {
 	friendsCount = "friendsCount",
 	friendsCounts = "friendsCounts",
 
+	sponsor = "sponsor",
+	sponsorBanner = "sponsorBanner",
+	sponsorWays = "sponsorWays",
+	sponsorScanQr = "sponsorScanQr",
+	sponsorVisit = "sponsorVisit",
+	sponsorList = "sponsorList",
+	sponsorCounts = "sponsorCounts",
+	sponsorMethodsEmpty = "sponsorMethodsEmpty",
+	sponsorEmpty = "sponsorEmpty",
+
 	moments = "moments",
 	momentsNoResults = "momentsNoResults",
 	momentsBanner = "momentsBanner",

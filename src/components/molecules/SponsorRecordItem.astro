@@ -1,0 +1,113 @@
+---
+/**
+ * 赞助名单条目：头像（缺省回退首字母）+ 昵称 / 金额 / 日期 / 可选留言，
+ * 以带描边的胶囊条目呈现，置于 auto-fill 网格中，悬停描边变主题色。
+ */
+import Avatar from "@components/atoms/display/Avatar.svelte";
+import type { SponsorRecord } from "@/types/sponsorConfig";
+
+interface Props {
+	record: SponsorRecord;
+}
+const { record } = Astro.props;
+
+// 日期展示格式：M/D/YYYY（如 10/1/2025）；无效日期原样回退
+const formatDate = (date: string) => {
+	const d = new Date(date);
+	return Number.isNaN(d.getTime())
+		? date
+		: `${d.getMonth() + 1}/${d.getDate()}/${d.getFullYear()}`;
+};
+---
+
+<div class="sponsor-record">
+	<Avatar
+		src={record.avatar}
+		alt={record.name}
+		size={36}
+		fallback={record.name.charAt(0)}
+	/>
+	<div class="sponsor-record__body">
+		<div class="sponsor-record__top">
+			{record.link ? (
+				<a
+					class="sponsor-record__name sponsor-record__name--link"
+					href={record.link}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					{record.name}
+				</a>
+			) : (
+				<span class="sponsor-record__name">{record.name}</span>
+			)}
+			{record.amount && (
+				<span class="sponsor-record__amount">{record.amount}</span>
+			)}
+		</div>
+		{record.message && (
+			<p class="sponsor-record__message">{record.message}</p>
+		)}
+		{record.date && (
+			<time class="sponsor-record__date" datetime={record.date}>
+				{formatDate(record.date)}
+			</time>
+		)}
+	</div>
+</div>
+
+<style lang="stylus">
+.sponsor-record
+	display: flex
+	align-items: center
+	gap: 0.75rem
+	padding: 0.75rem
+	border-radius: var(--shape-corner-l)
+	border: 1px solid var(--outline-variant)
+	transition: border-color var(--m3e-duration-short) var(--m3e-easing-standard)
+
+	&:hover
+		border-color: var(--primary)
+
+	&__body
+		flex: 1
+		min-width: 0
+
+	&__top
+		display: flex
+		align-items: center
+		gap: 0.5rem
+
+	&__name
+		color: var(--on-surface)
+		font: var(--m3e-type-title-small)
+		font-weight: 700
+		overflow: hidden
+		text-overflow: ellipsis
+		white-space: nowrap
+
+		&--link
+			color: var(--primary)
+			text-decoration: none
+
+			&:hover
+				text-decoration: underline
+
+	&__amount
+		flex-shrink: 0
+		color: var(--primary)
+		font: var(--m3e-type-label-medium)
+		font-weight: 700
+
+	&__message
+		margin: 0.125rem 0 0
+		color: var(--on-surface-variant)
+		font: var(--m3e-type-body-small)
+		line-height: 1.5
+
+	&__date
+		display: block
+		margin-top: 0.125rem
+		color: var(--on-surface-variant)
+		font: var(--m3e-type-label-small)
+</style>

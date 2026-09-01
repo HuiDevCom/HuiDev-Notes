@@ -18,6 +18,16 @@ export const zh_CN: Translation = {
 	[Key.friendsCount]: "个友链",
 	[Key.friendsCounts]: "个友链",
 
+	[Key.sponsor]: "赞助",
+	[Key.sponsorBanner]: "如果这些内容对你有帮助，欢迎请我喝杯咖啡。",
+	[Key.sponsorWays]: "赞助方式",
+	[Key.sponsorScanQr]: "扫码赞助",
+	[Key.sponsorVisit]: "前往赞助",
+	[Key.sponsorList]: "赞助名单",
+	[Key.sponsorCounts]: "位赞助者",
+	[Key.sponsorMethodsEmpty]: "站长还没有配置赞助方式",
+	[Key.sponsorEmpty]: "还没有收到赞助 —— 每一份支持都是好的开始。",
+
 	[Key.moments]: "动态",
 	[Key.momentsNoResults]: "没有符合条件的动态",
 	[Key.momentsBanner]: "随手记录的碎碎念 —— 生活、折腾与一切小确幸。",

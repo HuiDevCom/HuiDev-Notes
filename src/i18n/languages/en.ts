@@ -19,6 +19,18 @@ export const en: Translation = {
 	[Key.friendsCount]: "friend",
 	[Key.friendsCounts]: "friends",
 
+	[Key.sponsor]: "Sponsor",
+	[Key.sponsorBanner]:
+		"If my posts have helped you, buying me a coffee keeps them coming.",
+	[Key.sponsorWays]: "Ways to Support",
+	[Key.sponsorScanQr]: "Scan to sponsor",
+	[Key.sponsorVisit]: "Visit",
+	[Key.sponsorList]: "Supporters",
+	[Key.sponsorCounts]: "supporters",
+	[Key.sponsorMethodsEmpty]: "No support methods have been added yet",
+	[Key.sponsorEmpty]:
+		"No supporters yet — every bit of support is a great start.",
+
 	[Key.moments]: "Moments",
 	[Key.momentsNoResults]: "No moments matched your filters",
 	[Key.momentsBanner]:

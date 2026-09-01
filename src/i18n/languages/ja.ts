@@ -19,6 +19,18 @@ export const ja: Translation = {
 	[Key.friendsCount]: "件の友達リンク",
 	[Key.friendsCounts]: "件の友達リンク",
 
+	[Key.sponsor]: "スポンサー",
+	[Key.sponsorBanner]:
+		"もし記事がお役に立ったら、コーヒーをおごっていただけると嬉しいです。",
+	[Key.sponsorWays]: "支援方法",
+	[Key.sponsorScanQr]: "QRコードで支援",
+	[Key.sponsorVisit]: "支援ページへ",
+	[Key.sponsorList]: "支援者リスト",
+	[Key.sponsorCounts]: "人の支援者",
+	[Key.sponsorMethodsEmpty]: "まだ支援方法が登録されていません",
+	[Key.sponsorEmpty]:
+		"まだ支援はありません —— 最初の応援をお待ちしています。",
+
 	[Key.moments]: "モーメンツ",
 	[Key.momentsNoResults]: "条件に一致するモーメンツはありません",
 	[Key.momentsBanner]:

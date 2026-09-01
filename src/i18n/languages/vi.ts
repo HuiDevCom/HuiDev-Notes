@@ -19,6 +19,18 @@ export const vi: Translation = {
 	[Key.friendsCount]: "liên kết bạn bè",
 	[Key.friendsCounts]: "liên kết bạn bè",
 
+	[Key.sponsor]: "Ủng hộ",
+	[Key.sponsorBanner]:
+		"Nếu những bài viết này hữu ích với bạn, hãy mời tôi một ly cà phê nhé.",
+	[Key.sponsorWays]: "Cách ủng hộ",
+	[Key.sponsorScanQr]: "Quét mã để ủng hộ",
+	[Key.sponsorVisit]: "Mở liên kết",
+	[Key.sponsorList]: "Người ủng hộ",
+	[Key.sponsorCounts]: "người ủng hộ",
+	[Key.sponsorMethodsEmpty]: "Chưa có phương thức ủng hộ nào được cấu hình",
+	[Key.sponsorEmpty]:
+		"Chưa có người ủng hộ — mỗi sự ủng hộ đều là một khởi đầu tốt đẹp.",
+
 	[Key.moments]: "Khoảnh khắc",
 	[Key.momentsNoResults]: "Không có khoảnh khắc nào khớp bộ lọc",
 	[Key.momentsBanner]:

@@ -7,10 +7,15 @@
 import { devicesData } from "../data/devices.ts";
 import { projectsData } from "../data/projects.ts";
 import { skillsData } from "../data/skills.ts";
+import { sponsorMethodsData } from "../data/sponsor.ts";
 import { timelineData } from "../data/timeline.ts";
 import type { DeviceItem, DevicesConfig } from "../types/devicesConfig.ts";
 import type { ProjectItem, ProjectsConfig } from "../types/projectsConfig.ts";
 import type { SkillItem, SkillsConfig } from "../types/skillsConfig.ts";
+import type {
+	SponsorConfig,
+	SponsorMethod,
+} from "../types/sponsorConfig.ts";
 import type { TimelineConfig, TimelineItem } from "../types/timelineConfig.ts";
 
 /**
@@ -112,6 +117,22 @@ export function resolveTimelineData(
 		return [...filtered].reverse();
 	}
 	return filtered;
+}
+
+/**
+ * 解析赞助页方式清单（应用独立开关与禁用列表）。
+ */
+export function resolveSponsorMethods(
+	config: SponsorConfig,
+	customItems?: readonly SponsorMethod[],
+): SponsorMethod[] {
+	const source = customItems ?? sponsorMethodsData;
+	const enabledItems = source.filter((item) => item.enable !== false);
+	return filterByDisabledKeys(
+		enabledItems,
+		config.disabledKeys,
+		(item) => item.key,
+	);
 }
 
 /**

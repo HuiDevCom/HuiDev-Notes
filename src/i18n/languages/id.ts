@@ -19,6 +19,18 @@ export const id: Translation = {
 	[Key.friendsCount]: "teman",
 	[Key.friendsCounts]: "teman",
 
+	[Key.sponsor]: "Dukung",
+	[Key.sponsorBanner]:
+		"Jika tulisan ini membantumu, traktir aku kopi sebagai dukungan.",
+	[Key.sponsorWays]: "Cara Mendukung",
+	[Key.sponsorScanQr]: "Pindai untuk mendukung",
+	[Key.sponsorVisit]: "Kunjungi tautan",
+	[Key.sponsorList]: "Daftar Pendukung",
+	[Key.sponsorCounts]: "pendukung",
+	[Key.sponsorMethodsEmpty]: "Belum ada metode dukungan yang dikonfigurasi",
+	[Key.sponsorEmpty]:
+		"Belum ada pendukung — setiap dukungan adalah awal yang baik.",
+
 	[Key.moments]: "Momen",
 	[Key.momentsNoResults]: "Tidak ada momen yang cocok dengan filter",
 	[Key.momentsBanner]:
