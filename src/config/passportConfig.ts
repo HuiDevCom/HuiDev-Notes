@@ -22,7 +22,7 @@ export const passportConfig: PassportConfig = withUserConfig("passport", {
 	/** Logto 端点（在 Logto 控制台应用详情页查看），必填 */
 	endpoint: "https://auth.huidev.com",
 	/** Logto 单页应用 App ID，必填 */
-	appId: "53xxha4p2ghe9shzlglwh",
+	appId: "aeeasdw2uru0esslwp4an",
 	/** OIDC scopes：身份 + 资料即可满足登录与个人资料页展示 */
 	scopes: ["openid", "profile", "email", "offline_access"],
 	/** 登出后跳转路径；留空则回到通行证页 */
