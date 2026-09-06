@@ -74,6 +74,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://www.skymirror.top",
 		tags: ["Service"],
 	},
+	{
+		id: 8,
+		title: "ATL-Resurrection",
+		imgurl: "https://www.atl-resurrection.top/static/avatar.png",
+		desc: "种下灵感，仰望同一片天空 伟大的理想终将复苏",
+		siteurl: "https://www.atl-resurrection.top",
+		tags: ["Site"],
+	},
 ];
 
 // 获取所有友情链接数据（稳定顺序，测试可复现）
