@@ -66,6 +66,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://silvaire.top/",
 		tags: ["Blog"],
 	},
+	{
+		id: 7,
+		title: "云镜之端",
+		imgurl: "https://img.skymirror.top/i/e5v3.svg",
+		desc: "万象入镜，汇智一端",
+		siteurl: "https://www.skymirror.top",
+		tags: ["Service"],
+	},
 ];
 
 // 获取所有友情链接数据（稳定顺序，测试可复现）
