@@ -82,6 +82,14 @@ export const friendsData: FriendItem[] = [
 		siteurl: "https://www.atl-resurrection.top",
 		tags: ["Site"],
 	},
+	{
+		id: 9,
+		title: "狐风轩汐の小屋",
+		imgurl: "https://f.windemiko.top/favicon.svg",
+		desc: "代码、游戏与创作的记录现场。把灵感做成可运行的东西，也把旅途中遇到的风景留在这里。",
+		siteurl: "https://f.windemiko.top",
+		tags: ["Blog"],
+	},
 ];
 
 // 获取所有友情链接数据（稳定顺序，测试可复现）
