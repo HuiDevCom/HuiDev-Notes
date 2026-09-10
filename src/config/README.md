@@ -112,7 +112,7 @@ export const siteConfig: SiteConfig = withUserConfig("site", {
 | `musicConfig.ts` | 侧栏音乐全局配置：总开关（默认关闭）、`provider` 模式切换接口、`defaultVolume` 初始音量与 `defaultMode` 初始播放模式（本地曲目清单维护在 `src/data/music.ts`）；与 `sidebarConfig` 的 music 条目共同控制 `MusicSidebar`，详见下文与 `docs/sidebar-widgets.md` |
 | `postListConfig.ts` | 文章列表：分页大小 + 布局（list/grid 模式、封面位置、grid 卡片宽度档位） |
 | `articleConfig.ts` | 文章详情：最后更新提示、延伸阅读（相关/随机文章抽样）、以及文章尾部分享区块（总开关、海报生成与封面配置） |
-| `commentConfig.ts` | 评论系统：全局开关（默认关闭）、Provider 选择（Twikoo 等）、视口懒加载与服务凭据配置 |
+| `commentConfig.ts` | 评论系统：全局开关（默认关闭）、Provider 选择（Twikoo / Giscus）、视口懒加载与服务凭据配置；Giscus 基于 GitHub Discussions（需公开仓库 + 安装 giscus App + 从 giscus.app 取 repoId/categoryId），主题明暗双值跟随站点切换 |
 | `contextMenuConfig.ts` | 桌面端右键增强：可选开关（当前默认开启）；配置允许页面与操作顺序，关闭时零 DOM、零监听器、零客户端资源 |
 | `umamiConfig.ts` | Umami 统计：全局开关（默认关闭）、公开分享统计读取，以及可选的官方访问采集脚本配置；支持内容仓 `config/umami.yaml` 覆盖（领域键 `umami`） |
 | `passportConfig.ts` | 风绘通行证（Logto SPA 认证）：全局开关（默认关闭）、Logto 端点与 App ID、OIDC scopes、登出跳转与回调路径、账户入口（默认进入主题内置个人资料页 `/passport/profile/`，基于 Logto Account API 的站内资料管理；可设外部地址或 `false` 关闭）；`profileFields` 可编辑字段须与 Logto 控制台「账户中心」字段权限一致（权限为「关闭」或「只读」的字段设为 `false`，前端隐藏并不提交该字段，否则 `PATCH` 会 400；当前 `name`/`username` 为 `false` 与控制台权限对齐）；开启时渲染 `/passport/` 页面与导航入口，关闭时零 DOM、零请求、零 SDK 字节；支持内容仓 `config/passport.yaml` 覆盖（领域键 `passport`） |
