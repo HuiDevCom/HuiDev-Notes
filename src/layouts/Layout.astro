@@ -41,7 +41,7 @@ const canonicalUrl = siteConfig.site
 		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 		{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
 		{siteConfig.favicons.map((favicon) => (
-			<link rel="icon" href={favicon.src} type={favicon.type} sizes={favicon.sizes} />
+			<link rel={favicon.rel ?? 'icon'} href={favicon.src} type={favicon.type} sizes={favicon.sizes} />
 		))}
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>

@@ -1,4 +1,4 @@
-import type { SiteConfig } from '../types/siteConfig';
+import type { FaviconConfig, SiteConfig } from '../types/siteConfig';
 
 /**
  * 站点核心配置。
@@ -20,10 +20,13 @@ export const siteConfig = {
 	language: 'zh-CN',
 	locale: 'zh_CN',
 	timeZone: 'Asia/Shanghai',
+	// 标签页图标使用品牌矢量图（风 + 星）；favicon.ico 与 apple-touch-icon.png
+	// 均由 public/favicon.svg 导出，替换图标时请一并更新这三份文件。
 	favicons: [
-		{ src: '/logo.png', type: 'image/png', sizes: '256x256' },
-		{ src: '/favicon.ico', type: 'image/x-icon', sizes: '32x32' },
-	],
+		{ src: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' },
+		{ src: '/favicon.ico', type: 'image/x-icon', sizes: '16x16 32x32 48x48' },
+		{ src: '/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png', sizes: '180x180' },
+	] as FaviconConfig[],
 	theme: {
 		color: '#eef8ff',
 		defaultMode: 'system',

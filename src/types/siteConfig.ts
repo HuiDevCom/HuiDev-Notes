@@ -2,6 +2,8 @@ export type ColorScheme = 'light' | 'dark' | 'system';
 
 export interface FaviconConfig {
 	src: string;
+	/** 缺省为 icon；iOS 主屏图标使用 apple-touch-icon。 */
+	rel?: 'icon' | 'apple-touch-icon' | 'mask-icon';
 	type?: string;
 	sizes?: string;
 }
