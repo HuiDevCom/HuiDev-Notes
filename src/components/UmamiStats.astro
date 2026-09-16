@@ -1,0 +1,51 @@
+---
+import { umamiConfig } from '@/config';
+
+interface Props {
+	path?: string;
+	variant?: 'home' | 'post';
+}
+
+const { path, variant = 'post' } = Astro.props;
+const enabled = umamiConfig.enable
+	&& umamiConfig.publicShare.enable
+	&& umamiConfig.stats.enable
+	&& Boolean(umamiConfig.publicShare.url);
+const labels = umamiConfig.stats.labels;
+---
+
+{enabled && (
+	<div
+		data-huidev-umami
+		data-umami-path={path}
+		data-umami-compact={String(umamiConfig.stats.compactNumbers)}
+		data-state="idle"
+		aria-label="访问统计"
+		class:list={[
+			'huidev-umami-stats',
+			variant === 'post'
+				? 'inline-flex items-center gap-2'
+				: 'grid grid-cols-2 gap-3',
+		]}
+	>
+		<span class:list={[
+			'huidev-umami-item',
+			variant === 'post'
+				? 'inline-flex items-center gap-1.5'
+				: 'rounded-2xl border-2 border-sky-ink/10 bg-white/65 px-4 py-3 backdrop-blur dark:border-white/10 dark:bg-white/5',
+		]}>
+			<span class={variant === 'home' ? 'block text-[10px] font-black tracking-[.16em] text-sky-ink/40 dark:text-white/35' : ''}>{labels.pageviews}</span>
+			<strong data-huidev-umami-pageviews aria-live="polite" class={variant === 'home' ? 'mt-1 block text-xl font-black text-sky-ink dark:text-white' : 'font-black text-sky-ink/70 dark:text-white/65'}>--</strong>
+		</span>
+		<span aria-hidden={variant === 'post' ? 'true' : undefined} class={variant === 'post' ? '' : 'hidden'}>·</span>
+		<span class:list={[
+			'huidev-umami-item',
+			variant === 'post'
+				? 'inline-flex items-center gap-1.5'
+				: 'rounded-2xl border-2 border-sky-ink/10 bg-white/65 px-4 py-3 backdrop-blur dark:border-white/10 dark:bg-white/5',
+		]}>
+			<span class={variant === 'home' ? 'block text-[10px] font-black tracking-[.16em] text-sky-ink/40 dark:text-white/35' : ''}>{labels.visits}</span>
+			<strong data-huidev-umami-visits aria-live="polite" class={variant === 'home' ? 'mt-1 block text-xl font-black text-sakura' : 'font-black text-sky-ink/70 dark:text-white/65'}>--</strong>
+		</span>
+	</div>
+)}

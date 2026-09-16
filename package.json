@@ -9,12 +9,22 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check",
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^7.3.2"
+    "@astrojs/svelte": "^9.0.1",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.3.2",
+    "oddmisc": "^1.2.11",
+    "svelte": "^5.57.0",
+    "tailwindcss": "^4.3.3",
+    "typescript": "^6.0.3"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.10"
   }
 }

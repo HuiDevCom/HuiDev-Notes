@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import PostLayout from '../../layouts/PostLayout.astro';
+
+export async function getStaticPaths() {
+	const posts = (await getCollection('posts', ({ data }) => !data.draft))
+		.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+	return posts.map((post, index) => ({
+		params: { slug: post.id },
+		props: {
+			post,
+			previous: posts[index + 1] ? { slug: posts[index + 1].id, title: posts[index + 1].data.title } : undefined,
+			next: posts[index - 1] ? { slug: posts[index - 1].id, title: posts[index - 1].data.title } : undefined,
+		},
+	}));
+}
+
+interface Props {
+	post: CollectionEntry<'posts'>;
+	previous?: { slug: string; title: string };
+	next?: { slug: string; title: string };
+}
+
+const { post, previous, next } = Astro.props;
+const { Content, headings } = await render(post);
+---
+
+<PostLayout
+	title={post.data.title}
+	description={post.data.description}
+	publishedAt={post.data.publishedAt}
+	updatedAt={post.data.updatedAt}
+	category={post.data.category}
+	tags={post.data.tags}
+	readingTime={post.data.readingTime}
+	coverTone={post.data.coverTone}
+	coverMark={post.data.coverMark}
+	coverImage={post.data.coverImage}
+	headings={headings}
+	toc={post.data.toc}
+	comments={post.data.comment}
+	previous={previous}
+	next={next}
+>
+	<Content />
+</PostLayout>

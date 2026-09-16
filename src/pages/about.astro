@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InnerPage from '../components/InnerPage.svelte';
+import { createPageTitle } from '@/config';
+---
+
+<Layout title={createPageTitle('关于')} description="关于风绘笔记、作者与这个博客的创作理念。">
+	<InnerPage page="about" client:load />
+</Layout>

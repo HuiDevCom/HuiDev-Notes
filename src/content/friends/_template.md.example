@@ -1,0 +1,13 @@
+---
+name: "朋友的小站"
+url: "https://example.com"
+avatar: "https://example.com/avatar.png" # 可删除，缺省时显示 mark
+category: "CODE · LIFE"
+mark: "友"
+tone: "sky" # sky | mint | sunset | lilac
+status: "active" # active | open
+order: 10
+draft: false
+---
+
+在这里填写友链简介，可以使用 **Markdown**。

@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import InnerPage from '../../components/InnerPage.svelte';
+import { createPageTitle, siteConfig } from '@/config';
+
+const dateFormatter = new Intl.DateTimeFormat('sv-SE', {
+	year: 'numeric',
+	month: '2-digit',
+	day: '2-digit',
+	timeZone: siteConfig.timeZone,
+});
+
+const entries = (await getCollection('posts', ({ data }) => !data.draft))
+	.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const posts = entries.map((entry) => ({
+	slug: entry.id,
+	category: entry.data.category,
+	date: dateFormatter.format(entry.data.publishedAt),
+	title: entry.data.title,
+	description: entry.data.description,
+	readTime: entry.data.readingTime,
+	mark: entry.data.coverMark,
+	tone: entry.data.coverTone,
+	coverImage: entry.data.coverImage,
+}));
+---
+
+<Layout title={createPageTitle('文章')} description="风绘笔记的文章归档：代码、设计与异想日常。">
+	<InnerPage page="posts" posts={posts} client:load />
+</Layout>

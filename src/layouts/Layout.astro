@@ -1,23 +1,73 @@
+---
+import '../styles/global.css';
+import UmamiRuntime from '../components/UmamiRuntime.astro';
+import { siteConfig, umamiConfig } from '@/config';
+
+interface Props {
+	title?: string;
+	description?: string;
+}
+
+const {
+	title = siteConfig.title,
+	description = siteConfig.description,
+} = Astro.props;
+
+const umamiEnabled = umamiConfig.enable && Boolean(umamiConfig.websiteId);
+const umamiStatsEnabled = umamiConfig.enable
+	&& umamiConfig.publicShare.enable
+	&& umamiConfig.stats.enable
+	&& Boolean(umamiConfig.publicShare.url);
+const themeStorageKey = siteConfig.theme.storageKey;
+const defaultThemeMode = siteConfig.theme.defaultMode;
+const canonicalUrl = siteConfig.site
+	? new URL(Astro.url.pathname, siteConfig.site).toString()
+	: undefined;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={siteConfig.language}>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="theme-color" content={siteConfig.theme.color} />
+		<meta property="og:type" content={siteConfig.seo.openGraphType} />
+		<meta property="og:locale" content={siteConfig.locale} />
+		<meta property="og:site_name" content={siteConfig.name} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta name="twitter:card" content={siteConfig.seo.twitterCard} />
+		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+		{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+		{siteConfig.favicons.map((favicon) => (
+			<link rel="icon" href={favicon.src} type={favicon.type} sizes={favicon.sizes} />
+		))}
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title}</title>
+		<script is:inline define:vars={{ themeStorageKey, defaultThemeMode }}>
+			const theme = localStorage.getItem(themeStorageKey);
+			const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches;
+			if (theme === 'dark' || (!theme && (defaultThemeMode === 'dark' || (defaultThemeMode === 'system' && prefersDark)))) {
+				document.documentElement.classList.add('dark');
+			}
+		</script>
+		{umamiEnabled && (
+			<script
+				is:inline
+				defer
+				src={umamiConfig.scriptUrl}
+				data-website-id={umamiConfig.websiteId}
+				data-host-url={umamiConfig.hostUrl || undefined}
+				data-domains={umamiConfig.domains || undefined}
+				data-do-not-track={umamiConfig.options.respectDoNotTrack ? 'true' : undefined}
+				data-exclude-search={umamiConfig.options.excludeSearch ? 'true' : undefined}
+				data-exclude-hash={umamiConfig.options.excludeHash ? 'true' : undefined}
+			></script>
+		)}
 	</head>
 	<body>
 		<slot />
+		{umamiStatsEnabled && <UmamiRuntime />}
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

@@ -1,0 +1,98 @@
+<script>
+	import { createUmamiClient } from 'oddmisc';
+	import { umamiConfig } from '@/config';
+
+	type StatsResult = {
+		pageviews: number;
+		visits: number;
+		_fromCache?: boolean;
+	};
+
+	type StatsClient = {
+		getSiteStats: () => Promise<StatsResult>;
+		getPageStats: (path: string) => Promise<StatsResult>;
+		clearCache: () => void;
+	};
+
+	type StatsWindow = Window & {
+		__huidevUmamiStatsPromises?: Map<string, Promise<StatsResult>>;
+	};
+
+	const statsWindow = window as StatsWindow;
+	const client = createUmamiClient({ shareUrl: umamiConfig.publicShare.url });
+	const roots = () => document.querySelectorAll<HTMLElement>('[data-huidev-umami]');
+
+	function formatCount(value: number, compact: boolean) {
+		return new Intl.NumberFormat('zh-CN', compact
+			? { notation: 'compact', maximumFractionDigits: 1 }
+			: undefined).format(value);
+	}
+
+	async function loadStats(root: HTMLElement, statsClient: StatsClient) {
+		if (root.dataset.state === 'loading' || root.dataset.state === 'ready') return;
+
+		root.dataset.state = 'loading';
+		const path = root.dataset.umamiPath;
+		const key = path ? `page:${path}` : 'site';
+		const promises = statsWindow.__huidevUmamiStatsPromises
+			??= new Map<string, Promise<StatsResult>>();
+		let request = promises.get(key);
+
+		if (!request) {
+			request = path ? statsClient.getPageStats(path) : statsClient.getSiteStats();
+			promises.set(key, request);
+		}
+
+		try {
+			let stats = await request;
+			if (stats._fromCache && stats.pageviews === 0 && stats.visits === 0) {
+				statsClient.clearCache();
+				request = path ? statsClient.getPageStats(path) : statsClient.getSiteStats();
+				promises.set(key, request);
+				stats = await request;
+			}
+
+			const compact = root.dataset.umamiCompact !== 'false';
+			const pageviews = root.querySelector<HTMLElement>('[data-huidev-umami-pageviews]');
+			const visits = root.querySelector<HTMLElement>('[data-huidev-umami-visits]');
+			if (pageviews) pageviews.textContent = formatCount(stats.pageviews, compact);
+			if (visits) visits.textContent = formatCount(stats.visits, compact);
+			root.dataset.state = 'ready';
+		} catch (error) {
+			root.dataset.state = 'error';
+			console.warn('[HuiDev Notes] 无法读取 Umami 公开统计。', error);
+		}
+	}
+
+	function hydrateStats() {
+		roots().forEach((root) => void loadStats(root, client));
+	}
+
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', hydrateStats, { once: true });
+	} else {
+		hydrateStats();
+	}
+</script>
+
+<style is:global>
+	[data-huidev-umami][data-state='loading'] [data-huidev-umami-pageviews],
+	[data-huidev-umami][data-state='loading'] [data-huidev-umami-visits] {
+		animation: huidev-stat-pulse 1.4s ease-in-out infinite;
+	}
+
+	[data-huidev-umami][data-state='error'] {
+		opacity: .55;
+	}
+
+	@keyframes huidev-stat-pulse {
+		50% { opacity: .35; }
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		[data-huidev-umami][data-state='loading'] [data-huidev-umami-pageviews],
+		[data-huidev-umami][data-state='loading'] [data-huidev-umami-visits] {
+			animation: none;
+		}
+	}
+</style>

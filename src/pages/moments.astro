@@ -1,0 +1,36 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import InnerPage from '../components/InnerPage.svelte';
+import { createPageTitle } from '@/config';
+
+const entries = (await getCollection('moments', ({ data }) => !data.draft))
+	.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+	month: 'short',
+	day: '2-digit',
+	timeZone: 'Asia/Shanghai',
+});
+const timeFormatter = new Intl.DateTimeFormat('zh-CN', {
+	hour: '2-digit',
+	minute: '2-digit',
+	hourCycle: 'h23',
+	timeZone: 'Asia/Shanghai',
+});
+
+const moments = entries.map((entry) => ({
+	slug: entry.id,
+	period: entry.data.period,
+	date: dateFormatter.format(entry.data.publishedAt).toUpperCase().replace(' ', '. '),
+	time: timeFormatter.format(entry.data.publishedAt),
+	html: entry.rendered?.html ?? entry.body ?? '',
+	tag: entry.data.tag,
+	icon: entry.data.icon,
+	tone: entry.data.tone,
+}));
+---
+
+<Layout title={createPageTitle('片刻')} description="收集那些还没有长成文章，却舍不得忘记的片刻。">
+	<InnerPage page="moments" moments={moments} client:load />
+</Layout>

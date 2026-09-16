@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import InnerPage from '../components/InnerPage.svelte';
+import { createPageTitle } from '@/config';
+
+const entries = (await getCollection('friends', ({ data }) => !data.draft))
+	.sort((a, b) => a.data.order - b.data.order);
+
+const friends = entries.map((entry) => ({
+	slug: entry.id,
+	name: entry.data.name,
+	url: entry.data.url,
+	avatar: entry.data.avatar,
+	category: entry.data.category,
+	mark: entry.data.mark,
+	tone: entry.data.tone,
+	status: entry.data.status,
+	descriptionHtml: entry.rendered?.html ?? entry.body ?? '',
+}));
+---
+
+<Layout title={createPageTitle('友人帐')} description="风绘笔记的友人帐，收藏认真生活、写作与创造的独立小站。">
+	<InnerPage page="friends" friends={friends} client:load />
+</Layout>

@@ -1,0 +1,96 @@
+---
+import { commentConfig } from '@/config';
+
+const { envId, region, scriptUrl, language } = commentConfig.twikoo;
+const enabled = commentConfig.enable && Boolean(envId);
+const showSetupHint = import.meta.env.DEV
+	&& commentConfig.enable
+	&& commentConfig.showDevSetupHint
+	&& !enabled;
+const { lazyLoad, lazyLoadMargin } = commentConfig;
+---
+
+{(enabled || showSetupHint) && (
+	<section class="twikoo-shell mt-20 border-t-2 border-sky-ink/10 pt-12 dark:border-white/10" aria-labelledby="comments-title">
+		<div class="mb-8 flex items-end justify-between gap-5">
+			<div>
+				<p class="text-[10px] font-black tracking-[.24em] text-sakura">{commentConfig.label}</p>
+				<h2 id="comments-title" class="mt-3 font-display text-3xl font-black text-sky-ink sm:text-4xl dark:text-white">{commentConfig.heading}</h2>
+			</div>
+			<span class="hidden text-4xl text-mizu sm:block" aria-hidden="true">〰</span>
+		</div>
+
+		{enabled ? (
+			<div id="tcomment" class="min-h-[28rem] rounded-3xl border-2 border-sky-ink/10 bg-white/65 p-5 backdrop-blur dark:border-white/10 dark:bg-white/5 sm:p-7"></div>
+		) : (
+			<div class="rounded-3xl border-2 border-dashed border-sky-ink/20 bg-white/55 px-6 py-10 text-center dark:border-white/15 dark:bg-white/5">
+				<p class="text-3xl" aria-hidden="true">☁</p>
+				<p class="mt-3 font-black text-sky-ink dark:text-white">Twikoo 评论区等待连接</p>
+				<p class="mt-2 text-sm leading-7 text-sky-ink/45 dark:text-white/40">在本地环境中填写 <code>PUBLIC_TWIKOO_ENV_ID</code> 后即可加载。</p>
+			</div>
+		)}
+	</section>
+)}
+
+{enabled && (
+	<script is:inline define:vars={{ envId, region, scriptUrl, language, lazyLoad, lazyLoadMargin }}>
+		const root = document.querySelector('#tcomment');
+		if (root && !root.dataset.twikooMounted) {
+			const loadTwikoo = () => new Promise((resolve, reject) => {
+				if (window.twikoo) return resolve(window.twikoo);
+				const existing = document.querySelector('script[data-huidev-twikoo]');
+				if (existing) {
+					existing.addEventListener('load', () => resolve(window.twikoo), { once: true });
+					existing.addEventListener('error', reject, { once: true });
+					return;
+				}
+				const script = document.createElement('script');
+				script.src = scriptUrl;
+				script.async = true;
+				script.dataset.huidevTwikoo = '';
+				script.onload = () => resolve(window.twikoo);
+				script.onerror = reject;
+				document.head.appendChild(script);
+			});
+
+			const mountTwikoo = () => {
+				if (root.dataset.twikooMounted) return;
+				root.dataset.twikooMounted = 'loading';
+				loadTwikoo()
+					.then((twikoo) => twikoo.init({
+						envId,
+						el: '#tcomment',
+						path: window.location.pathname,
+						lang: language,
+						...(region ? { region } : {}),
+					}))
+					.then(() => { root.dataset.twikooMounted = 'ready'; })
+					.catch(() => {
+						root.dataset.twikooMounted = 'error';
+						root.innerHTML = '<p class="twikoo-error">评论区暂时没有被风送达，请稍后再试。</p>';
+					});
+			};
+
+			if (lazyLoad && 'IntersectionObserver' in window) {
+				const observer = new IntersectionObserver((entries) => {
+					if (!entries.some((entry) => entry.isIntersecting)) return;
+					observer.disconnect();
+					mountTwikoo();
+				}, { rootMargin: lazyLoadMargin });
+				observer.observe(root);
+			} else {
+				mountTwikoo();
+			}
+		}
+	</script>
+)}
+
+<style is:global>
+	.twikoo-shell code { border-radius: .35rem; background: rgba(72,199,232,.14); padding: .15rem .4rem; color: #176781; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; }
+	.dark .twikoo-shell code { color: #87e4fb; }
+	.twikoo-shell .twikoo-error { margin: 0; padding: 3rem 1rem; text-align: center; color: rgba(35,55,99,.55); font-weight: 700; }
+	.dark .twikoo-shell .twikoo-error { color: rgba(255,255,255,.5); }
+	.twikoo-shell .tk-comments-container { color: var(--color-sky-ink); }
+	.dark .twikoo-shell .tk-comments-container { color: rgba(255,255,255,.78); }
+	.twikoo-shell .el-textarea__inner { min-height: 9rem !important; resize: vertical; }
+</style>
