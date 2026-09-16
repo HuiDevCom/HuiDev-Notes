@@ -136,6 +136,12 @@
 
 		{#if page === 'posts'}
 			<section class="mx-auto max-w-[1440px] px-5 pb-28 sm:px-8 lg:px-12">
+				<nav class="mb-8 flex flex-wrap gap-2" aria-label="文章浏览方式">
+					<a href="/archives" class="rounded-full border-2 border-sky-ink/15 bg-white px-4 py-2 text-xs font-black text-sky-ink no-underline transition hover:border-mizu dark:border-white/10 dark:bg-white/5 dark:text-white">时间归档</a>
+					<a href="/categories" class="rounded-full border-2 border-sky-ink/15 bg-white px-4 py-2 text-xs font-black text-sky-ink no-underline transition hover:border-mizu dark:border-white/10 dark:bg-white/5 dark:text-white">文章分类</a>
+					<a href="/tags" class="rounded-full border-2 border-sky-ink/15 bg-white px-4 py-2 text-xs font-black text-sky-ink no-underline transition hover:border-mizu dark:border-white/10 dark:bg-white/5 dark:text-white">标签云</a>
+					<a href="/rss.xml" class="rounded-full border-2 border-sky-ink/15 bg-white px-4 py-2 text-xs font-black text-sky-ink no-underline transition hover:border-sakura dark:border-white/10 dark:bg-white/5 dark:text-white">RSS 订阅</a>
+				</nav>
 				<div class="mb-10 flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
 					<div class="no-scrollbar flex gap-2 overflow-x-auto pb-1">
 						{#each categories as category}
@@ -288,6 +294,6 @@
 	</main>
 
 	<footer class="relative z-10 border-t-2 border-sky-ink/10 bg-white/50 px-5 py-10 dark:border-white/10 dark:bg-white/[.025] sm:px-8 lg:px-12">
-		<div class="mx-auto flex max-w-[1440px] flex-col gap-8 sm:flex-row sm:items-center sm:justify-between"><div class="flex items-center gap-4"><img src={siteConfig.logo} alt="" class="size-11 rounded-xl border-2 border-sky-ink bg-white object-cover dark:border-white" /><div><strong class="text-base tracking-[.14em] text-sky-ink dark:text-white">{siteConfig.name}</strong><p class="mt-1 text-xs text-sky-ink/45 dark:text-white/40">{siteConfig.footer.tagline}</p></div></div><div class="flex items-center gap-6 text-xs font-bold tracking-wider text-sky-ink/45 dark:text-white/40"><span>{siteConfig.footer.copyright}</span>{#if umamiConfig.publicShare.enable && umamiConfig.publicShare.url}<a href={umamiConfig.publicShare.url} target="_blank" rel="noopener noreferrer" class="text-sky-ink no-underline hover:text-mizu dark:text-white">{umamiConfig.publicShare.label} ↗</a>{/if}<a href="/" class="text-sky-ink no-underline hover:text-sakura dark:text-white">返回首页 ↑</a></div></div>
+		<div class="mx-auto flex max-w-[1440px] flex-col gap-8 sm:flex-row sm:items-center sm:justify-between"><div class="flex items-center gap-4"><img src={siteConfig.logo} alt="" class="size-11 rounded-xl border-2 border-sky-ink bg-white object-cover dark:border-white" /><div><strong class="text-base tracking-[.14em] text-sky-ink dark:text-white">{siteConfig.name}</strong><p class="mt-1 text-xs text-sky-ink/45 dark:text-white/40">{siteConfig.footer.tagline}</p></div></div><div class="flex flex-wrap items-center gap-6 text-xs font-bold tracking-wider text-sky-ink/45 dark:text-white/40"><span>{siteConfig.footer.copyright}</span><a href="/rss.xml" class="text-sky-ink no-underline hover:text-sakura dark:text-white">RSS</a>{#if umamiConfig.publicShare.enable && umamiConfig.publicShare.url}<a href={umamiConfig.publicShare.url} target="_blank" rel="noopener noreferrer" class="text-sky-ink no-underline hover:text-mizu dark:text-white">{umamiConfig.publicShare.label} ↗</a>{/if}<a href="/" class="text-sky-ink no-underline hover:text-sakura dark:text-white">返回首页 ↑</a></div></div>
 	</footer>
 </div>

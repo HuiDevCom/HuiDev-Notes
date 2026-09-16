@@ -6,6 +6,18 @@ export interface ArticleConfig {
 	previousNext: {
 		enable: boolean;
 	};
+	readingProgress: {
+		enable: boolean;
+	};
+	relatedPosts: {
+		enable: boolean;
+		limit: number;
+	};
+	share: {
+		enable: boolean;
+		copyLink: boolean;
+		nativeShare: boolean;
+	};
 	cover: {
 		label: string;
 	};

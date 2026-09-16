@@ -10,6 +10,18 @@ export const articleConfig = {
 	previousNext: {
 		enable: true,
 	},
+	readingProgress: {
+		enable: true,
+	},
+	relatedPosts: {
+		enable: true,
+		limit: 3,
+	},
+	share: {
+		enable: true,
+		copyLink: true,
+		nativeShare: true,
+	},
 	cover: {
 		label: 'HUIDEV STORY',
 	},

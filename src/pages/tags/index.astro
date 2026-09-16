@@ -1,0 +1,14 @@
+---
+import { getCollection } from 'astro:content';
+import CollectionLayout from '@/layouts/CollectionLayout.astro';
+import { collectTerms, sortPosts, toTaxonomySlug } from '@/utils/taxonomy';
+
+const posts = sortPosts(await getCollection('posts', ({ data }) => !data.draft));
+const tags = collectTerms(posts, (post) => post.data.tags);
+---
+
+<CollectionLayout title="标签云" description="从关键词出发，串起散落在文章里的线索。" eyebrow="STORY CONSTELLATION" activeKey="posts">
+	<div class="flex flex-wrap gap-3">
+		{tags.map(([tag, items], index) => <a href={`/tags/${toTaxonomySlug(tag)}`} class={`rounded-full border-2 border-sky-ink/15 bg-white px-5 py-3 font-black text-sky-ink no-underline transition hover:-translate-y-1 hover:border-mizu dark:border-white/10 dark:bg-white/5 dark:text-white ${index % 4 === 0 ? 'text-xl' : index % 3 === 0 ? 'text-base' : 'text-sm'}`}>#{tag}<sup class="ml-2 text-[10px] text-sakura">{items.length}</sup></a>)}
+	</div>
+</CollectionLayout>

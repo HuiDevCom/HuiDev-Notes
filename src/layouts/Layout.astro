@@ -40,6 +40,8 @@ const canonicalUrl = siteConfig.site
 		<meta name="twitter:card" content={siteConfig.seo.twitterCard} />
 		{canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
 		{canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
+		<link rel="alternate" type="application/rss+xml" title={`${siteConfig.name} RSS`} href="/rss.xml" />
+		<link rel="sitemap" href="/sitemap-index.xml" />
 		{siteConfig.favicons.map((favicon) => (
 			<link rel={favicon.rel ?? 'icon'} href={favicon.src} type={favicon.type} sizes={favicon.sizes} />
 		))}

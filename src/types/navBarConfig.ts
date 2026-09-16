@@ -1,4 +1,4 @@
-export type PageKey = 'home' | 'posts' | 'moments' | 'friends' | 'about';
+export type PageKey = 'home' | 'posts' | 'moments' | 'friends' | 'about' | 'search';
 
 export interface NavBarItem {
 	key: PageKey;

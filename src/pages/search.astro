@@ -1,0 +1,9 @@
+---
+import CollectionLayout from '@/layouts/CollectionLayout.astro';
+import SearchClient from '@/components/SearchClient.svelte';
+import { searchConfig } from '@/config';
+---
+
+<CollectionLayout title="搜索" description="在标题、标签和文章正文里，寻找曾经写下的线索。" eyebrow="SEARCH THE WIND" activeKey="search">
+	{searchConfig.enable ? <SearchClient client:load /> : <p class="text-center text-sky-ink/45 dark:text-white/40">搜索功能暂未开启。</p>}
+</CollectionLayout>

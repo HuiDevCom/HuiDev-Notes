@@ -2,6 +2,8 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import PostLayout from '../../layouts/PostLayout.astro';
+import { articleConfig } from '@/config';
+import { scoreRelatedPosts } from '@/utils/taxonomy';
 
 export async function getStaticPaths() {
 	const posts = (await getCollection('posts', ({ data }) => !data.draft))
@@ -13,6 +15,17 @@ export async function getStaticPaths() {
 			post,
 			previous: posts[index + 1] ? { slug: posts[index + 1].id, title: posts[index + 1].data.title } : undefined,
 			next: posts[index - 1] ? { slug: posts[index - 1].id, title: posts[index - 1].data.title } : undefined,
+			related: articleConfig.relatedPosts.enable
+				? scoreRelatedPosts(post, posts).slice(0, articleConfig.relatedPosts.limit).map((item) => ({
+					slug: item.id,
+					title: item.data.title,
+					description: item.data.description,
+					category: item.data.category,
+					coverImage: item.data.coverImage,
+					coverTone: item.data.coverTone,
+					readingTime: item.data.readingTime,
+				}))
+				: [],
 		},
 	}));
 }
@@ -21,9 +34,18 @@ interface Props {
 	post: CollectionEntry<'posts'>;
 	previous?: { slug: string; title: string };
 	next?: { slug: string; title: string };
+	related: Array<{
+		slug: string;
+		title: string;
+		description: string;
+		category: string;
+		coverImage?: string;
+		coverTone: 'sky' | 'sunset' | 'mint';
+		readingTime: string;
+	}>;
 }
 
-const { post, previous, next } = Astro.props;
+const { post, previous, next, related } = Astro.props;
 const { Content, headings } = await render(post);
 ---
 
@@ -43,6 +65,7 @@ const { Content, headings } = await render(post);
 	comments={post.data.comment}
 	previous={previous}
 	next={next}
+	related={related}
 >
 	<Content />
 </PostLayout>

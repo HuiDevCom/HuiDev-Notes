@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import CollectionLayout from '@/layouts/CollectionLayout.astro';
+import { sortPosts } from '@/utils/taxonomy';
+
+const posts = sortPosts(await getCollection('posts', ({ data }) => !data.draft));
+const years = Map.groupBy(posts, (post) => post.data.publishedAt.getFullYear());
+const formatDate = (date: Date) => new Intl.DateTimeFormat('zh-CN', { month: '2-digit', day: '2-digit' }).format(date);
+---
+
+<CollectionLayout title="文章归档" description="按时间翻阅风绘笔记的全部文章。" eyebrow="TIME CAPSULE" activeKey="posts">
+	<div class="space-y-14">
+		{[...years.entries()].map(([year, items]) => <section class="grid gap-6 md:grid-cols-[120px_1fr]">
+			<div><p class="font-display text-5xl font-black text-sky-ink dark:text-white">{year}</p><span class="mt-2 block text-xs font-black tracking-[.2em] text-sakura">{String(items.length).padStart(2, '0')} STORIES</span></div>
+			<div class="overflow-hidden rounded-3xl border-2 border-sky-ink/15 bg-white/65 dark:border-white/10 dark:bg-white/5">
+				{items.map((post) => <a href={`/posts/${post.id}`} class="group grid gap-2 border-b border-sky-ink/10 px-5 py-5 no-underline transition last:border-0 hover:bg-mizu/10 sm:grid-cols-[70px_130px_1fr] sm:items-center dark:border-white/10">
+					<time class="text-xs font-black text-sky-ink/35 dark:text-white/35">{formatDate(post.data.publishedAt)}</time>
+					<span class="text-xs font-black text-mizu">{post.data.category}</span>
+					<strong class="text-base text-sky-ink transition group-hover:translate-x-1 dark:text-white">{post.data.title}</strong>
+				</a>)}
+			</div>
+		</section>)}
+	</div>
+</CollectionLayout>

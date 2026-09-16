@@ -1,0 +1,52 @@
+---
+import type { PageKey } from '../types/navBarConfig';
+import { enabledNavItems, navBarConfig, siteConfig } from '@/config';
+
+interface Props {
+	activeKey?: PageKey;
+}
+
+const { activeKey } = Astro.props;
+const themeStorageKey = siteConfig.theme.storageKey;
+---
+
+<header class="relative z-50 px-4 pt-4 sm:px-6 lg:px-10" data-site-header>
+	<div class="mx-auto flex h-17 max-w-[1440px] items-center justify-between rounded-2xl border-2 border-sky-ink/15 bg-white/80 px-4 shadow-[0_10px_40px_rgba(35,55,99,.08)] backdrop-blur-xl sm:px-6 dark:border-white/10 dark:bg-[#171c38]/85">
+		<a href="/" class="group flex items-center gap-3 no-underline" aria-label={`${siteConfig.name}首页`}>
+			<img src={siteConfig.logo} alt={siteConfig.logoAlt} class="anime-shadow-sm size-10 rotate-[-4deg] rounded-xl border-2 border-sky-ink bg-white object-cover transition-transform group-hover:rotate-3 dark:border-white" />
+			<span><strong class="block text-base leading-tight tracking-[.16em] text-sky-ink dark:text-white">{siteConfig.name}</strong><small class="block text-[9px] font-bold tracking-[.23em] text-sky-ink/45 dark:text-white/45">{siteConfig.englishName}</small></span>
+		</a>
+		{navBarConfig.enable && (
+			<nav class="hidden items-center gap-1 rounded-full border border-sky-ink/10 bg-white/55 p-1 text-sm font-bold text-sky-ink/65 md:flex dark:border-white/10 dark:bg-white/5 dark:text-white/65" aria-label={navBarConfig.ariaLabel}>
+				{enabledNavItems.map((item) => <a href={item.href} target={item.external ? '_blank' : undefined} aria-current={activeKey === item.key ? 'page' : undefined} class={`rounded-full px-4 py-2 no-underline transition ${activeKey === item.key ? 'bg-sky-ink text-white shadow-sm dark:bg-mizu dark:text-night' : 'hover:bg-mizu/15 hover:text-sky-ink dark:hover:text-white'}`}>{item.label}</a>)}
+			</nav>
+		)}
+		<div class="flex items-center gap-2">
+			<button type="button" data-theme-toggle class="grid size-10 cursor-pointer place-items-center rounded-full border-2 border-sky-ink/15 bg-white text-lg text-sky-ink transition hover:border-mizu dark:border-white/15 dark:bg-white/5 dark:text-white" aria-label="切换深浅色主题">☾</button>
+			{navBarConfig.enable && <button type="button" data-menu-toggle class="grid size-10 cursor-pointer place-items-center rounded-full border-2 border-sky-ink/15 bg-white text-sky-ink md:hidden dark:border-white/15 dark:bg-white/5 dark:text-white" aria-label="打开导航" aria-expanded="false"><svg class="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"></path></svg></button>}
+		</div>
+	</div>
+	{navBarConfig.enable && <nav data-mobile-nav hidden class="anime-shadow-sm mx-auto mt-3 grid max-w-[1440px] grid-cols-2 gap-2 rounded-2xl border-2 border-sky-ink bg-white p-3 text-center text-sm font-bold text-sky-ink md:hidden dark:border-mizu dark:bg-[#1b2142] dark:text-white" aria-label={navBarConfig.ariaLabel}>{enabledNavItems.map((item) => <a href={item.href} target={item.external ? '_blank' : undefined} aria-current={activeKey === item.key ? 'page' : undefined} class={`rounded-xl px-4 py-3 no-underline hover:bg-mizu/15 ${activeKey === item.key ? 'bg-mizu/15' : ''}`}>{item.label}</a>)}</nav>}
+</header>
+
+<script is:inline define:vars={{ themeStorageKey }}>
+	document.querySelectorAll('[data-site-header]').forEach((header) => {
+		if (header.dataset.ready === 'true') return;
+		header.dataset.ready = 'true';
+		const themeButton = header.querySelector('[data-theme-toggle]');
+		const menuButton = header.querySelector('[data-menu-toggle]');
+		const mobileNav = header.querySelector('[data-mobile-nav]');
+		const syncThemeIcon = () => { if (themeButton) themeButton.textContent = document.documentElement.classList.contains('dark') ? '☀' : '☾'; };
+		syncThemeIcon();
+		themeButton?.addEventListener('click', () => {
+			document.documentElement.classList.toggle('dark');
+			localStorage.setItem(themeStorageKey, document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+			syncThemeIcon();
+		});
+		menuButton?.addEventListener('click', () => {
+			const open = mobileNav?.hasAttribute('hidden') ?? true;
+			mobileNav?.toggleAttribute('hidden', !open);
+			menuButton.setAttribute('aria-expanded', String(open));
+		});
+	});
+</script>

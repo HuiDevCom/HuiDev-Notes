@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import CollectionLayout from '@/layouts/CollectionLayout.astro';
+import PostCardGrid from '@/components/PostCardGrid.astro';
+import { collectTerms, sortPosts, toPostCard, toTaxonomySlug } from '@/utils/taxonomy';
+
+export async function getStaticPaths() {
+	const posts = sortPosts(await getCollection('posts', ({ data }) => !data.draft));
+	return collectTerms(posts, (post) => [post.data.category]).map(([category, items]) => ({
+		params: { category: toTaxonomySlug(category) },
+		props: { category, posts: items.map(toPostCard) },
+	}));
+}
+
+const { category, posts } = Astro.props;
+---
+
+<CollectionLayout title={category} description={`收录在「${category}」分类下的文章。`} eyebrow="CATEGORY" activeKey="posts">
+	<div class="mb-8 flex gap-3"><a href="/categories" class="rounded-full border-2 border-sky-ink/15 bg-white px-4 py-2 text-xs font-black text-sky-ink no-underline dark:border-white/10 dark:bg-white/5 dark:text-white">← 全部分类</a><span class="rounded-full bg-yuzu px-4 py-2 text-xs font-black text-sky-ink">{posts.length} STORIES</span></div>
+	<PostCardGrid posts={posts} />
+</CollectionLayout>

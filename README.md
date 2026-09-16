@@ -26,9 +26,13 @@
 | :-- | :-- | :-- |
 | 首页 | `/` | 风的入口：精选文章、分类筛选与漂浮的云 |
 | 文章 | `/posts` | 长文归档，分为「代码魔法」「视觉研究」「异想日常」 |
+| 搜索 | `/search` | Pagefind 驱动的标题、标签与正文全文搜索 |
+| 归档 | `/archives` | 按年份与时间浏览全部文章 |
+| 分类 / 标签 | `/categories`、`/tags` | 从主题与关键词进入文章集合 |
 | 片刻 | `/moments` | 还没有长成文章、却舍不得忘记的碎片（早晨 / 黄昏 / 深夜） |
 | 友人帐 | `/friends` | 收藏认真生活、写作与创造的独立小站 |
 | 关于 | `/about` | 关于风绘、关于这块领地的创作理念 |
+| RSS | `/rss.xml` | 面向阅读器的文章订阅源 |
 
 ## ✦ 技术栈
 
@@ -36,6 +40,8 @@
 - **Svelte 5** — 首页与内页的交互岛屿（分类筛选、主题切换、移动导航）
 - **Tailwind CSS 4** — 全站样式，自定义主题色板与动画
 - **TypeScript** — 内容 schema 由 Zod 校验，写错 frontmatter 会在构建时报错
+- **Pagefind** — 在构建后为文章生成静态全文索引，不依赖外部搜索服务
+- **Astro Sitemap / RSS** — 自动生成站点地图与订阅源
 
 ## ✦ 项目结构
 
@@ -46,7 +52,9 @@
 ├── src/
 │   ├── components/
 │   │   ├── HomePage.svelte  # 首页岛屿
-│   │   └── InnerPage.svelte # 内页岛屿（posts / moments / friends / about）
+│   │   ├── InnerPage.svelte # 内页岛屿（posts / moments / friends / about）
+│   │   └── SearchClient.svelte # Pagefind 全文搜索
+│   ├── config/               # 站点、文章、搜索、评论与统计配置
 │   ├── content/
 │   │   ├── posts/           # 文章（Markdown）
 │   │   ├── moments/         # 片刻（Markdown）
@@ -70,10 +78,23 @@
 | :-- | :-- |
 | `pnpm install` | 安装依赖 |
 | `pnpm dev` | 启动开发服务器（`localhost:4321`） |
-| `pnpm build` | 构建生产站点到 `./dist/` |
+| `pnpm build` | 构建生产站点并在 `./dist/pagefind/` 生成搜索索引 |
 | `pnpm preview` | 本地预览构建产物 |
 | `pnpm check` | 运行 Astro 类型检查（内容 schema + 组件类型） |
 | `pnpm astro ...` | 运行 Astro CLI，如 `astro add`、`astro sync` |
+
+全文搜索依赖生产构建生成索引，因此开发模式下搜索页会显示提示；执行 `pnpm build` 后使用 `pnpm preview` 即可完整测试。
+
+## ✦ 常用配置
+
+主题的日常配置集中在 `src/config/`：
+
+- `siteConfig.ts`：域名、站名、图标、SEO、语言时区与页脚
+- `navBarConfig.ts`：导航项目与显示开关
+- `articleConfig.ts`：目录、阅读进度、相关推荐与分享
+- `searchConfig.ts`：搜索开关、结果数量与提示文字
+- `commentConfig.ts`：Twikoo 服务与评论区
+- `umamiConfig.ts`：Umami 脚本、公开统计与显示位置
 
 ## ✦ 写作指南
 

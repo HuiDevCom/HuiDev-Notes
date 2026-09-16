@@ -263,7 +263,7 @@
 				<img src={siteConfig.logo} alt="" class="size-11 rounded-xl border-2 border-sky-ink bg-white object-cover dark:border-white" />
 				<div><strong class="text-base tracking-[.14em] text-sky-ink dark:text-white">{siteConfig.name}</strong><p class="mt-1 text-xs text-sky-ink/45 dark:text-white/40">{siteConfig.footer.tagline}</p></div>
 			</div>
-			<div class="flex items-center gap-6 text-xs font-bold tracking-wider text-sky-ink/45 dark:text-white/40"><span>{siteConfig.footer.copyright}</span>{#if umamiConfig.publicShare.enable && umamiConfig.publicShare.url}<a href={umamiConfig.publicShare.url} target="_blank" rel="noopener noreferrer" class="text-sky-ink no-underline hover:text-mizu dark:text-white">{umamiConfig.publicShare.label} ↗</a>{/if}<a href="#top" class="text-sky-ink no-underline hover:text-sakura dark:text-white">返回天空 ↑</a></div>
+			<div class="flex flex-wrap items-center gap-6 text-xs font-bold tracking-wider text-sky-ink/45 dark:text-white/40"><span>{siteConfig.footer.copyright}</span><a href="/rss.xml" class="text-sky-ink no-underline hover:text-sakura dark:text-white">RSS</a>{#if umamiConfig.publicShare.enable && umamiConfig.publicShare.url}<a href={umamiConfig.publicShare.url} target="_blank" rel="noopener noreferrer" class="text-sky-ink no-underline hover:text-mizu dark:text-white">{umamiConfig.publicShare.label} ↗</a>{/if}<a href="#top" class="text-sky-ink no-underline hover:text-sakura dark:text-white">返回天空 ↑</a></div>
 		</div>
 	</footer>
 </div>

@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import CollectionLayout from '@/layouts/CollectionLayout.astro';
+import PostCardGrid from '@/components/PostCardGrid.astro';
+import { collectTerms, sortPosts, toPostCard, toTaxonomySlug } from '@/utils/taxonomy';
+
+export async function getStaticPaths() {
+	const posts = sortPosts(await getCollection('posts', ({ data }) => !data.draft));
+	return collectTerms(posts, (post) => post.data.tags).map(([tag, items]) => ({
+		params: { tag: toTaxonomySlug(tag) },
+		props: { tag, posts: items.map(toPostCard) },
+	}));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<CollectionLayout title={`#${tag}`} description={`带有「${tag}」标签的文章。`} eyebrow="TAG" activeKey="posts">
+	<div class="mb-8 flex gap-3"><a href="/tags" class="rounded-full border-2 border-sky-ink/15 bg-white px-4 py-2 text-xs font-black text-sky-ink no-underline dark:border-white/10 dark:bg-white/5 dark:text-white">← 全部标签</a><span class="rounded-full bg-yuzu px-4 py-2 text-xs font-black text-sky-ink">{posts.length} STORIES</span></div>
+	<PostCardGrid posts={posts} />
+</CollectionLayout>

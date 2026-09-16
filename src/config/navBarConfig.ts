@@ -11,6 +11,7 @@ export const navBarConfig = {
 		{ key: 'moments', label: '片刻', href: createSitePath('/moments'), enable: true },
 		{ key: 'friends', label: '友人帐', href: createSitePath('/friends'), enable: true },
 		{ key: 'about', label: '关于', href: createSitePath('/about'), enable: true },
+		{ key: 'search', label: '搜索', href: createSitePath('/search'), enable: true },
 	],
 } as const satisfies NavBarConfig;
 
