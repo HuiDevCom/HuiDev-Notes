@@ -8,15 +8,20 @@
 	type Friend = { slug: string; name: string; url?: string; avatar?: string; category: string; mark: string; tone: 'sky' | 'mint' | 'sunset' | 'lilac'; status: 'active' | 'open'; descriptionHtml: string };
 
 	let { page, posts = [], moments = [], friends = [] }: { page: Page; posts?: Article[]; moments?: Moment[]; friends?: Friend[] } = $props();
+	const pad = (value: number) => String(value).padStart(2, '0');
 	const activeFriendCount = friends.filter((friend) => friend.status === 'active').length;
+	const openFriendCount = friends.length - activeFriendCount;
+	const friendCountLabel = activeFriendCount
+		? `${pad(activeFriendCount)} FRIENDS${openFriendCount ? ` · ${pad(openFriendCount)} OPEN` : ''}`
+		: `${pad(openFriendCount)} OPEN SEATS`;
 	const siteAvatarUrl = siteConfig.site
 		? new URL(profileConfig.avatar, siteConfig.site).toString()
 		: profileConfig.avatar;
 
 	const pageMeta = {
-		posts: { eyebrow: 'STORY ARCHIVE', title: '文章', subtitle: '沿着风的轨迹，翻阅所有故事。', count: `${String(posts.length).padStart(2, '0')} STORIES` },
-		moments: { eyebrow: 'DAILY FRAGMENTS', title: '片刻', subtitle: '还没有长成文章，也舍不得忘记。', count: `${String(moments.length).padStart(2, '0')} MOMENTS` },
-		friends: { eyebrow: 'DEAR FRIENDS', title: '友人帐', subtitle: '交换一小片世界，也交换彼此路过的风景。', count: activeFriendCount ? `${String(activeFriendCount).padStart(2, '0')} FRIENDS` : `${String(friends.length).padStart(2, '0')} OPEN SEATS` },
+		posts: { eyebrow: 'STORY ARCHIVE', title: '文章', subtitle: '沿着风的轨迹，翻阅所有故事。', count: `${pad(posts.length)} STORIES` },
+		moments: { eyebrow: 'DAILY FRAGMENTS', title: '片刻', subtitle: '还没有长成文章，也舍不得忘记。', count: `${pad(moments.length)} MOMENTS` },
+		friends: { eyebrow: 'DEAR FRIENDS', title: '友人帐', subtitle: '交换一小片世界，也交换彼此路过的风景。', count: friendCountLabel },
 		about: { eyebrow: 'ABOUT THIS WORLD', title: '关于', subtitle: '在现实和想象之间，认真生活。', count: 'SINCE 2026' },
 	}[page];
 

@@ -5,8 +5,8 @@ avatar: "https://example.com/avatar.png" # 可删除，缺省时显示 mark
 category: "CODE · LIFE"
 mark: "友"
 tone: "sky" # sky | mint | sunset | lilac
-status: "active" # active | open
-order: 10
+status: "active" # active = 已交换友链；open = 虚位以待（显示为 OPEN SEAT，不出站外链接）
+order: 10 # 数值越小越靠前；虚位建议用 100 以上，排在真实友链之后
 draft: false
 ---
 

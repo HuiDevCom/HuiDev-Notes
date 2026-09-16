@@ -21,7 +21,16 @@ const { lazyLoad, lazyLoadMargin } = commentConfig;
 		</div>
 
 		{enabled ? (
-			<div id="tcomment" class="min-h-[28rem] rounded-3xl border-2 border-sky-ink/10 bg-white/65 p-5 backdrop-blur dark:border-white/10 dark:bg-white/5 sm:p-7"></div>
+			<div
+				id="tcomment"
+				data-twikoo-env-id={envId}
+				data-twikoo-region={region}
+				data-twikoo-script-url={scriptUrl}
+				data-twikoo-language={language}
+				data-twikoo-lazy-load={String(lazyLoad)}
+				data-twikoo-lazy-load-margin={lazyLoadMargin}
+				class="min-h-[28rem] rounded-3xl border-2 border-sky-ink/10 bg-white/65 p-5 backdrop-blur dark:border-white/10 dark:bg-white/5 sm:p-7"
+			></div>
 		) : (
 			<div class="rounded-3xl border-2 border-dashed border-sky-ink/20 bg-white/55 px-6 py-10 text-center dark:border-white/15 dark:bg-white/5">
 				<p class="text-3xl" aria-hidden="true">☁</p>
@@ -33,9 +42,10 @@ const { lazyLoad, lazyLoadMargin } = commentConfig;
 )}
 
 {enabled && (
-	<script is:inline define:vars={{ envId, region, scriptUrl, language, lazyLoad, lazyLoadMargin }}>
-		const root = document.querySelector('#tcomment');
+	<script is:inline>
+		const root = document.getElementById('tcomment');
 		if (root && !root.dataset.twikooMounted) {
+			const config = root.dataset;
 			const loadTwikoo = () => new Promise((resolve, reject) => {
 				if (window.twikoo) return resolve(window.twikoo);
 				const existing = document.querySelector('script[data-huidev-twikoo]');
@@ -45,7 +55,7 @@ const { lazyLoad, lazyLoadMargin } = commentConfig;
 					return;
 				}
 				const script = document.createElement('script');
-				script.src = scriptUrl;
+				script.src = config.twikooScriptUrl;
 				script.async = true;
 				script.dataset.huidevTwikoo = '';
 				script.onload = () => resolve(window.twikoo);
@@ -58,11 +68,11 @@ const { lazyLoad, lazyLoadMargin } = commentConfig;
 				root.dataset.twikooMounted = 'loading';
 				loadTwikoo()
 					.then((twikoo) => twikoo.init({
-						envId,
+						envId: config.twikooEnvId,
 						el: '#tcomment',
 						path: window.location.pathname,
-						lang: language,
-						...(region ? { region } : {}),
+						lang: config.twikooLanguage,
+						...(config.twikooRegion ? { region: config.twikooRegion } : {}),
 					}))
 					.then(() => { root.dataset.twikooMounted = 'ready'; })
 					.catch(() => {
@@ -71,12 +81,12 @@ const { lazyLoad, lazyLoadMargin } = commentConfig;
 					});
 			};
 
-			if (lazyLoad && 'IntersectionObserver' in window) {
+			if (config.twikooLazyLoad !== 'false' && 'IntersectionObserver' in window) {
 				const observer = new IntersectionObserver((entries) => {
 					if (!entries.some((entry) => entry.isIntersecting)) return;
 					observer.disconnect();
 					mountTwikoo();
-				}, { rootMargin: lazyLoadMargin });
+				}, { rootMargin: config.twikooLazyLoadMargin });
 				observer.observe(root);
 			} else {
 				mountTwikoo();
