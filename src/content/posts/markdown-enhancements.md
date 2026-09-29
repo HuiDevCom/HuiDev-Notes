@@ -1,6 +1,6 @@
 ---
 title: Shirone Markdown Enhancements
-published: 2026-08-19
+published: 2026-06-15
 pinned: true
 description: Explore Shirone's custom Markdown extensions, expressive components, and authoring syntax.
 tags: [Demo, Markdown, Extensions, Theme, Shirone]
@@ -8,7 +8,7 @@ series: markdown-syntax-guide
 seriesOrder: 3
 category: Guides
 lang: en
-draft: false
+draft: true
 ---
 
 Shirone provides a collection of theme-exclusive Markdown extensions and custom syntax containers. Built on top of our native unified AST processing pipeline, all extensions render into accessible, semantic HTML during site build time with **zero client JavaScript hydration overhead** and **100% M3E design token alignment**.

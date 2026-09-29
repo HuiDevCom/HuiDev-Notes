@@ -1,11 +1,11 @@
 ---
 title: Markdown Collapse Panels
-published: 2026-08-28
+published: 2026-06-15
 description: Group optional Markdown content into compact, accessible M3E disclosure panels.
 tags: [Demo, Markdown, Collapse, Shirone]
 category: Guides
 lang: en
-draft: false
+draft: true
 ---
 
 Collapse panels keep related optional details in one compact group. Titles and bodies retain inline and block Markdown, while native disclosure semantics make every panel usable without client JavaScript.

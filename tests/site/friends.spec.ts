@@ -5,11 +5,11 @@ import { expect, test } from "@playwright/test";
  * 视觉约束对齐站点设计语言：PageHeader 页内大标题（装饰图标）、胶囊搜索条、
  * 官方 Chips 筛选原子、PostCard 风格卡片（hover 箭头 + #tag 弱文本标签）、
  * 筛选状态 URL 同步（?q= / ?tag=）。
- * 数据来自 src/data/friends.ts（getFriendsList 稳定顺序），断言基于默认数据集；
- * 站点默认语言为 en（siteConfig.lang），文案断言用英文。
+ * 数据来自 src/data/friends.ts（getFriendsList 稳定顺序），断言基于当前站点数据集；
+ * 站点语言为 zh_CN（siteConfig.lang），文案断言用中文。
  */
 
-const FRIEND_COUNT = 3;
+const FRIEND_COUNT = 8;
 
 test.describe("友链页", () => {
 	test.beforeEach(async ({ page }) => {
@@ -19,12 +19,10 @@ test.describe("友链页", () => {
 
 	test("渲染友链卡片（整卡可点，标题 / 描述 / 标签）", async ({ page }) => {
 		const first = page.locator(".friend-card").first();
-		await expect(first).toHaveAttribute("href", "https://mizuki.mysqil.com");
+		await expect(first).toHaveAttribute("href", "https://nzdnzd.top");
 		await expect(first).toHaveAttribute("target", "_blank");
-		await expect(first).toContainText("Mizuki");
-		await expect(first).toContainText(
-			"Another Fuwari-based blog theme with docs",
-		);
+		await expect(first).toContainText("NorthZero的博客");
+		await expect(first).toContainText("o_O");
 		await expect(first.locator(".friend-card__tag").first()).toHaveText(
 			"#Blog",
 		);
@@ -33,24 +31,24 @@ test.describe("友链页", () => {
 	test("使用站点统一的友链视觉结构", async ({ page }) => {
 		// PageHeader 封装的大标题（带装饰图标）
 		await expect(page.locator(".page-header")).toHaveCount(1);
-		await expect(page.locator(".page-header__title")).toHaveText("Friends");
+		await expect(page.locator(".page-header__title")).toHaveText("友链");
 		await expect(page.locator(".page-header__icon svg")).toHaveCount(1);
 		// PostCard 式箭头（chevron，hover 右滑）
 		await expect(page.locator(".friend-card__arrow")).toHaveCount(FRIEND_COUNT);
 		// 官方 Chips 原子（filter 形态）承担标签筛选
 		await expect(
 			page.locator(".friend-section__chips .m3-chip--filter"),
-		).toHaveCount(4);
+		).toHaveCount(3);
 		// 换链说明为 PageHeader 副标题
 		await expect(page.locator(".page-header__subtitle")).toBeVisible();
 		await expect(page.locator(".page-header__subtitle")).toContainText(
-			"Link exchange",
+			"欢迎交换友链",
 		);
 	});
 
 	test("筛选状态同步到 URL（?q= / ?tag=）", async ({ page }) => {
-		await page.locator(".friend-section__search input").fill("Mizuki");
-		await expect(page).toHaveURL(/[?&]q=Mizuki/);
+		await page.locator(".friend-section__search input").fill("NorthZero");
+		await expect(page).toHaveURL(/[?&]q=NorthZero/);
 		await page.getByRole("button", { name: "Blog", exact: true }).click();
 		await expect(page).toHaveURL(/[?&]tag=Blog/);
 		await page.locator(".friend-section__search input").fill("");
@@ -63,15 +61,17 @@ test.describe("友链页", () => {
 		const blogFilter = page.getByRole("button", { name: "Blog", exact: true });
 		await blogFilter.click();
 		await expect(blogFilter).toHaveAttribute("aria-pressed", "true");
-		await expect(page.locator(".friend-card")).toHaveCount(1);
-		await expect(page.getByText("Mizuki", { exact: true })).toBeVisible();
+		await expect(page.locator(".friend-card")).toHaveCount(6);
+		await expect(
+			page.getByText("NorthZero的博客", { exact: true }),
+		).toBeVisible();
 		await blogFilter.click();
 		await expect(page.locator(".friend-card")).toHaveCount(FRIEND_COUNT);
 		await expect(blogFilter).toHaveAttribute("aria-pressed", "false");
 	});
 
 	test("搜索过滤 + 空态", async ({ page }) => {
-		await page.locator(".friend-section__search input").fill("Astro");
+		await page.locator(".friend-section__search input").fill("云镜之端");
 		await expect(page.locator(".friend-card")).toHaveCount(1);
 		await page.locator(".friend-section__search input").fill("no such site");
 		await expect(page.locator(".friend-section__empty")).toBeVisible();

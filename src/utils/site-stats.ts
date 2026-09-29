@@ -4,6 +4,7 @@
  * 文章跑 render 提取 remark 字数，不做缓存会逐页重复开销）。
  */
 import { render } from "astro:content";
+import { siteConfig } from "@/config/siteConfig";
 import { seriesConfig } from "../config/seriesConfig.ts";
 import {
 	getCategoryList,
@@ -22,13 +23,34 @@ export interface SiteStats {
 	series: number;
 	/** 全部文章 remark 字数之和 */
 	words: number;
-	/** 运行天数：以最早一篇文章的发布日为起点（无文章则 0） */
+	/** 运行天数：优先以站点起始日为准，未配置时回退到最早公开文章的发布日 */
 	days: number;
 	/** 最近更新：全站最新一篇的发布/更新日（ISO 字符串；无文章为 null） */
 	lastActivity: string | null;
 }
 
 const DAY_MS = 86_400_000;
+
+function resolveSiteStartTime(earliestPublished: number): number {
+	const configuredDate = siteConfig.startDate?.trim();
+	if (!configuredDate) return earliestPublished;
+	if (!/^\d{4}-\d{2}-\d{2}$/.test(configuredDate)) {
+		throw new Error(
+			`[siteConfig] startDate must use YYYY-MM-DD format, received "${configuredDate}"`,
+		);
+	}
+
+	const timestamp = Date.parse(`${configuredDate}T00:00:00Z`);
+	if (
+		!Number.isFinite(timestamp) ||
+		new Date(timestamp).toISOString().slice(0, 10) !== configuredDate
+	) {
+		throw new Error(
+			`[siteConfig] startDate is not a valid calendar date: "${configuredDate}"`,
+		);
+	}
+	return timestamp;
+}
 
 let cache: SiteStats | null = null;
 
@@ -59,6 +81,8 @@ export async function getSiteStats(): Promise<SiteStats> {
 		latestActivity = Math.max(latestActivity, published, updated);
 	}
 
+	const siteStartTime = resolveSiteStartTime(earliest);
+
 	cache = {
 		posts: posts.length,
 		moments: moments.length,
@@ -67,8 +91,8 @@ export async function getSiteStats(): Promise<SiteStats> {
 		/** 系列实体数（功能关闭时为 0，SiteStats 不产出该行） */
 		series: seriesCatalog?.size ?? 0,
 		words,
-		days: Number.isFinite(earliest)
-			? Math.max(0, Math.floor((Date.now() - earliest) / DAY_MS))
+		days: Number.isFinite(siteStartTime)
+			? Math.max(0, Math.floor((Date.now() - siteStartTime) / DAY_MS))
 			: 0,
 		lastActivity:
 			latestActivity > 0 ? new Date(latestActivity).toISOString() : null,

@@ -1,6 +1,6 @@
 ---
 title: Password Protection and Post Encryption Demo
-published: 2026-08-20
+published: 2026-06-15
 pinned: true
 description: A demonstration of client-side authenticated decryption, memory session persistence, and M3E design tokens in Shirone.
 tags: [Demo, Security, Encryption, Markdown]
@@ -10,6 +10,7 @@ encrypted: true
 password: "shirone-secret"
 passwordHint: "Hint: the demo unlock password is shirone-secret"
 hideHomeContent: true
+draft: true
 ---
 
 # Password Protected Article

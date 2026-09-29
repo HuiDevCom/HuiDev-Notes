@@ -130,7 +130,7 @@ export const LinkPresets: Record<string, NavBarLink> = {
 	},
 	GitHub: {
 		name: "GitHub",
-		url: "https://github.com/LyraVoid/Shirone",
+		url: "https://github.com/HuiDevCom",
 		icon: "fa6-brands:github",
 		external: true,
 		pageKey: "github",
@@ -155,10 +155,9 @@ const defaultNavBarConfig: NavBarConfig = {
 				LinkPresets.Devices,
 				LinkPresets.Games,
 				LinkPresets.Skills,
-				// 分类/标签入口不进导航菜单（避免菜单项过多），预设已登记指向独立页面，
-				// 需要时取消注释即可
-				// LinkPresets.Categories,
-				// LinkPresets.Tags,
+				LinkPresets.Series,
+				LinkPresets.Categories,
+				LinkPresets.Tags,
 				LinkPresets.About,
 				LinkPresets.GitHub,
 			],

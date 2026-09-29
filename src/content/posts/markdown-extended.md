@@ -1,13 +1,13 @@
 ---
 title: Markdown Extended Features
-published: 2024-05-01
-updated: 2024-11-29
+published: 2026-06-15
+updated: 2026-06-15
 description: 'Read more about Markdown features in Fuwari'
 image: ''
 tags: [Demo, Example, Markdown, Fuwari]
 series: markdown-syntax-guide
 seriesOrder: 2
-draft: false 
+draft: true
 ---
 
 ## GitHub Repository Cards

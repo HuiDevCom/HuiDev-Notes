@@ -1,11 +1,11 @@
 ---
 title: Markdown Marker Highlights
-published: 2026-08-28
+published: 2026-06-15
 description: Highlight key phrases with token-driven marker syntax in Shirone Markdown.
 tags: [Demo, Markdown, Typography, Shirone]
 category: Guides
 lang: en
-draft: false
+draft: true
 ---
 
 Marker highlights bring attention to a specific phrase without turning the surrounding paragraph into a separate component. They render as native `<mark>` elements during the build and inherit the active M3E color system.
