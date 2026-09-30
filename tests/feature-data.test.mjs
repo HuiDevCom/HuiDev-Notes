@@ -28,12 +28,11 @@ describe("Feature Data & Resolver Tests", () => {
 		const config = {
 			enable: true,
 			categories: [],
-			disabledKeys: ["folkpatch"],
+			disabledKeys: ["huidev-pan"],
 		};
 		const resolved = resolveProjectsData(config);
-		assert.ok(resolved.some((p) => p.key === "shirone"));
-		assert.ok(resolved.some((p) => p.key === "kernelpatch"));
-		assert.ok(!resolved.some((p) => p.key === "folkpatch"));
+		assert.ok(resolved.some((p) => p.key === "huidev-api"));
+		assert.ok(!resolved.some((p) => p.key === "huidev-pan"));
 	});
 
 	it("resolveSkillsData applies disabledNames correctly", () => {
@@ -52,12 +51,12 @@ describe("Feature Data & Resolver Tests", () => {
 			enable: true,
 			categories: [],
 			order: "asc",
-			disabledTitles: ["Senior Frontend Engineer"],
+			disabledTitles: ["重构风绘笔记"],
 		};
 		const resolved = resolveTimelineData(config);
-		assert.ok(!resolved.some((t) => t.title === "Senior Frontend Engineer"));
-		// timelineData 中最旧的条目是 2020.09 – 2024.06 (Computer Science & Engineering Degree)
-		assert.equal(resolved[0].title, "Computer Science & Engineering Degree");
+		assert.ok(!resolved.some((t) => t.title === "重构风绘笔记"));
+		assert.equal(resolved.length, 1);
+		assert.equal(resolved[0].title, "风绘笔记正式运行");
 	});
 
 	it("resolveTimelineData sorts correctly by date in desc and asc order", () => {

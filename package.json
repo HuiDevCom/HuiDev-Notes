@@ -126,6 +126,7 @@
     "@axe-core/playwright": "^4.13.0",
     "@biomejs/biome": "2.5.13",
     "@iconify-json/simple-icons": "^1.2.95",
+    "@iconify-json/thesvg": "^1.2.7",
     "@lhci/cli": "0.15.1",
     "@playwright/test": "^1.63.0",
     "@rollup/plugin-yaml": "^4.1.2",

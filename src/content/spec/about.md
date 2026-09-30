@@ -1,26 +1,19 @@
-# About Shirone
+# 关于风绘
 
-Welcome to the demo site of **Shirone** (白音) — an expressive, anime-inspired blog theme built on the **Material 3 Expressive (M3E)** design system.
+你好，我是风绘。这里是风绘笔记，一个用代码构建、用文字记录的地方。
 
-::github{repo="LyraVoid/Shirone"}
+我会在这里整理开发中的经验与教程：记录遇到的问题、解决的过程，以及下次还用得上的方法。希望这些笔记能帮未来的自己，也能为碰到类似问题的你提供一点参考。
 
-## ✦ Design & Philosophy
+## 会写些什么
 
-Shirone aims to combine the warmth of expressive anime aesthetics with the rigor of modern web engineering:
+- 开发实践中的经验总结与踩坑记录。
+- 尽量讲清背景、步骤和注意事项的实用教程。
+- 值得留存、也值得分享的学习笔记。
 
-- **Dynamic Chromatic Spell**: Full dynamic HCT palette generation responding seamlessly to light/dark modes and user preferences with zero layout shifts.
-- **Seamless Shell Navigation**: Persistent application shell driven by Swup for continuous music playback, smooth page transitions, and preserved state.
-- **Rich Story Grimoire**: Markdown and MDX authoring with KaTeX math, Mermaid diagrams, interactive admonitions, expressive code blocks, and adaptive image galleries.
-- **Zero Extra Burden**: Optional integrations (comments, analytics, music widgets) load dynamically on demand — zero DOM footprint and zero bundle overhead when disabled.
+## 联系与交流
 
-## ✦ Tech Stack
+可以在 [GitHub · HuiDevCom](https://github.com/HuiDevCom) 找到我。欢迎交流、提出建议，或聊聊文章里提到的问题。
 
-- **Framework**: [Astro 7](https://astro.build/) & [Svelte 5](https://svelte.dev/) (Runes-driven islands)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/) & [Stylus](https://stylus-lang.com/)
-- **Design Standard**: [Material 3 Expressive](https://m3.material.io/)
-- **Typography**: Outfit & Yozai (悠哉圆体) with automated build-time subsetting
-- **Search Engine**: [Pagefind](https://pagefind.app/) offline full-text search
+## 关于本站
 
-## ✦ Credits
-
-- **Font**: [Yozai Font (悠哉字体)](https://github.com/lxgw/yozai-font) by [lxgw](https://github.com/lxgw)
+本站基于 [Shirone](https://github.com/LyraVoid/Shirone) 主题构建。感谢主题作者与开源社区的分享。

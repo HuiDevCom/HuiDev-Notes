@@ -19,12 +19,12 @@ export const timelineConfig: TimelineConfig = withUserConfig("timeline", {
 	categories: [
 		{
 			key: "milestone",
-			label: "Milestones",
+			label: "里程碑",
 			icon: "material-symbols:flag-rounded",
 		},
 		{
 			key: "project",
-			label: "Projects",
+			label: "站点建设",
 			icon: "material-symbols:code-rounded",
 		},
 		{

@@ -6,40 +6,26 @@ import type { ProjectItem } from "@/types/projectsConfig";
 
 export const projectsData: ProjectItem[] = [
 	{
-		key: "shirone",
-		title: "Shirone",
+		key: "huidev-pan",
+		title: "风绘云盘",
 		summary:
-			"An Astro blog theme shaped around an M3E component system, expressive content, and resilient client navigation.",
-		category: "theme",
-		phase: "building",
-		technologies: ["Astro", "Svelte", "TypeScript", "Tailwind CSS"],
-		icon: "material-symbols:deployed-code-outline-rounded",
-		cover: "/assets/projects/shirone.webp",
-		coverAlt: "Shirone theme homepage preview",
-		featured: true,
-		repository: "https://github.com/LyraVoid/Shirone",
-		year: "2026",
-	},
-	{
-		key: "folkpatch",
-		title: "FolkPatch",
-		summary: "A kernel-level root solution for Android, built on APatch.",
-		category: "android",
-		phase: "building",
-		technologies: ["Kotlin", "APatch", "Android"],
-		icon: "material-symbols:terminal-rounded",
-		repository: "https://github.com/LyraVoid/FolkPatch",
-	},
-	{
-		key: "kernelpatch",
-		title: "KernelPatch",
-		summary:
-			"A kernel patch framework that powers APatch-style root on Android by loading code into the running kernel.",
-		category: "android",
+			"风绘云盘提供安全可靠的云存储、多端同步、文件备份与分享服务，支持在线预览和便捷协作，帮助个人与团队轻松管理文档、照片、视频等重要资料，随时随地安全存取。",
+		category: "cloud",
 		phase: "shipped",
-		technologies: ["C", "Linux Kernel", "Android"],
-		icon: "material-symbols:extension-outline-rounded",
-		repository: "https://github.com/lyravoid/KernelPatch",
+		technologies: ["Cloudrave"],
+		icon: "material-symbols:cloud",
+		website: "https://pan.huidev.com/",
+	},
+	{
+		key: "huidev-api",
+		title: "风绘 API",
+		summary:
+			"风绘 API 是基于 New API 打造的统一 AI 网关：把多家上游渠道聚合成一个标准接口，为每个应用发放独立令牌，实时掌握用量、额度与分组权限。改一行 base_url，即可无缝切换模型。",
+		category: "ai",
+		phase: "shipped",
+		technologies: ["New API"],
+		icon: "thesvg:new-api",
+		website: "https://api.huidev.com",
 	},
 ];
 

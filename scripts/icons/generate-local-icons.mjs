@@ -26,6 +26,7 @@ const iconPrefixes = new Set([
 	"fa6-solid",
 	"material-symbols",
 	"simple-icons",
+	"thesvg",
 ]);
 
 function collectSourceFiles(directory) {
